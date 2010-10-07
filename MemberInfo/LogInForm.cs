@@ -110,11 +110,18 @@ namespace MemberInfo
         private void loginButton_Click(object sender, EventArgs e)
         {
 
+           
             LogInForm.ActiveForm.Visible = false;
             SaleForm sale1 = new SaleForm();
             sale1.Activate();
             sale1.Show();
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            System.Environment.Exit(0);
+
         }
     }
 }

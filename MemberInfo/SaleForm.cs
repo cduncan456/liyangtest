@@ -36,7 +36,9 @@ namespace MemberInfo
 
         private void SaleForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //System.Environment.Exit(1);
+            
+ 
+            LogInForm.ActiveForm.Show();
         }
     }
 }
