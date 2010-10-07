@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using MemberInfo;
 
-namespace MemberInfo
-{
     static class Program
     {
         /// <summary>
@@ -15,7 +14,9 @@ namespace MemberInfo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SaleForm());
+           // Application.Run(new SaleForm());
+           Application.Run(new LogInForm());
+
         }
     }
-}
+

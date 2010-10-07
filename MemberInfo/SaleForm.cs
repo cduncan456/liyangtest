@@ -18,8 +18,8 @@ namespace MemberInfo
 
         private void createNewMemButton_Click(object sender, EventArgs e)
         {
-            NewMemberForm theMemberForm = new NewMemberForm();
-            theMemberForm.Show();
+           // NewMemberForm theMemberForm = new NewMemberForm();
+           // theMemberForm.Show();
         }
     }
 }
