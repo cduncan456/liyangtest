@@ -18,8 +18,25 @@ namespace MemberInfo
 
         private void createNewMemButton_Click(object sender, EventArgs e)
         {
-           // NewMemberForm theMemberForm = new NewMemberForm();
-           // theMemberForm.Show();
+           NewMemberForm theMemberForm = new NewMemberForm();
+           theMemberForm.Show();
+        }
+
+        private void logOutButton_Click(object sender, EventArgs e)
+        {
+            LogInForm theLogIn = new LogInForm();
+            SaleForm.ActiveForm.Close();
+            theLogIn.Show();
+        }
+
+        private void SaleForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SaleForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //System.Environment.Exit(1);
         }
     }
 }

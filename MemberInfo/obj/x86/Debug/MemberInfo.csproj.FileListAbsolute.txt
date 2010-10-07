@@ -1,0 +1,11 @@
+C:\Users\vwilson1\Desktop\New folder\MemberInfo\bin\Debug\MemberInfo.exe
+C:\Users\vwilson1\Desktop\New folder\MemberInfo\bin\Debug\MemberInfo.pdb
+C:\Users\vwilson1\Desktop\New folder\MemberInfo\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\vwilson1\Desktop\New folder\MemberInfo\obj\x86\Debug\MemberInfo.LogInForm.resources
+C:\Users\vwilson1\Desktop\New folder\MemberInfo\obj\x86\Debug\MemberInfo.NewMemberForm.resources
+C:\Users\vwilson1\Desktop\New folder\MemberInfo\obj\x86\Debug\MemberInfo.SaleForm.resources
+C:\Users\vwilson1\Desktop\New folder\MemberInfo\obj\x86\Debug\MemberInfo.Properties.Resources.resources
+C:\Users\vwilson1\Desktop\New folder\MemberInfo\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\vwilson1\Desktop\New folder\MemberInfo\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\vwilson1\Desktop\New folder\MemberInfo\obj\x86\Debug\MemberInfo.exe
+C:\Users\vwilson1\Desktop\New folder\MemberInfo\obj\x86\Debug\MemberInfo.pdb

@@ -47,6 +47,7 @@
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.createNewMemButton = new System.Windows.Forms.Button();
+            this.logOutButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // completeSaleButton
@@ -210,11 +211,22 @@
             this.createNewMemButton.UseVisualStyleBackColor = true;
             this.createNewMemButton.Click += new System.EventHandler(this.createNewMemButton_Click);
             // 
+            // logOutButton
+            // 
+            this.logOutButton.Location = new System.Drawing.Point(12, 262);
+            this.logOutButton.Name = "logOutButton";
+            this.logOutButton.Size = new System.Drawing.Size(75, 23);
+            this.logOutButton.TabIndex = 18;
+            this.logOutButton.Text = "Log Out";
+            this.logOutButton.UseVisualStyleBackColor = true;
+            this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
+            // 
             // SaleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(615, 316);
+            this.Controls.Add(this.logOutButton);
             this.Controls.Add(this.createNewMemButton);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -235,6 +247,8 @@
             this.Controls.Add(this.shapeContainer1);
             this.Name = "SaleForm";
             this.Text = "Sale";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SaleForm_FormClosed);
+            this.Load += new System.EventHandler(this.SaleForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,6 +275,7 @@
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.Button createNewMemButton;
+        private System.Windows.Forms.Button logOutButton;
     }
 }
 
