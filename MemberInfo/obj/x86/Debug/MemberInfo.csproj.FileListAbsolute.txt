@@ -9,3 +9,14 @@ C:\Users\vwilson1\Desktop\New folder\MemberInfo\obj\x86\Debug\GenerateResource.r
 C:\Users\vwilson1\Desktop\New folder\MemberInfo\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\vwilson1\Desktop\New folder\MemberInfo\obj\x86\Debug\MemberInfo.exe
 C:\Users\vwilson1\Desktop\New folder\MemberInfo\obj\x86\Debug\MemberInfo.pdb
+C:\Users\smalik2\Desktop\New folder\MemberInfo\obj\x86\Debug\MemberInfo.exe
+C:\Users\smalik2\Desktop\New folder\MemberInfo\obj\x86\Debug\MemberInfo.pdb
+C:\Users\smalik2\Desktop\New folder\MemberInfo\bin\Debug\MemberInfo.exe
+C:\Users\smalik2\Desktop\New folder\MemberInfo\bin\Debug\MemberInfo.pdb
+C:\Users\smalik2\Desktop\New folder\MemberInfo\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\smalik2\Desktop\New folder\MemberInfo\obj\x86\Debug\MemberInfo.LogInForm.resources
+C:\Users\smalik2\Desktop\New folder\MemberInfo\obj\x86\Debug\MemberInfo.NewMemberForm.resources
+C:\Users\smalik2\Desktop\New folder\MemberInfo\obj\x86\Debug\MemberInfo.SaleForm.resources
+C:\Users\smalik2\Desktop\New folder\MemberInfo\obj\x86\Debug\MemberInfo.Properties.Resources.resources
+C:\Users\smalik2\Desktop\New folder\MemberInfo\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\smalik2\Desktop\New folder\MemberInfo\obj\x86\Debug\GenerateResource.write.1.tlog

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.Odbc;
 
 namespace MemberInfo
 {
@@ -19,13 +20,52 @@ namespace MemberInfo
         public LogInForm()
         {
             InitializeComponent();
+            fillEmployeeInfo();
+            /*
             employeeNumberList.Add(123456);
             employeeNumberList.Add(386226);
             employeeNumberList.Add(133337);
             employeePassList.Add("hello");
             employeePassList.Add("cake");
-            employeePassList.Add("itoldyou");
+            employeePassList.Add("itoldyou");*/
 
+        }
+
+        private void fillEmployeeInfo()
+        {
+            try
+            {
+                string MyConString = "DRIVER={MySQL ODBC 5.1 Driver};" +
+                     "SERVER=turing.cs.westga.edu;" +
+                     "PORT=3306;" +
+                     "DATABASE=vwilson1;" +
+                     "UID=vwilson1;" +
+                     "PASSWORD=vw881376";
+
+                OdbcConnection MyConnection = new OdbcConnection(MyConString);
+
+                MyConnection.Open();
+
+                OdbcCommand MyCommand = new OdbcCommand("select `employee_Id`, `password` from EMPLOYEE", MyConnection);
+
+                OdbcDataReader MyDataReader;
+                MyDataReader = MyCommand.ExecuteReader();
+                while (MyDataReader.Read())
+                {
+
+                    employeeNumberList.Add(Convert.ToInt32(MyDataReader.GetString(0)));
+                    employeePassList.Add(MyDataReader.GetString(1));
+                }
+
+                //Close all resources
+                MyDataReader.Close();
+                MyConnection.Close();
+            }
+            catch (Exception e)
+            {
+                //Console.WriteLine(e.ToString());
+                MessageBox.Show("Could not connect to SQL Server for Employee Info.", "Important Note", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+            }
         }
 
         public int getEmployeeNumber()
@@ -123,5 +163,6 @@ namespace MemberInfo
             System.Environment.Exit(0);
 
         }
+
     }
 }
