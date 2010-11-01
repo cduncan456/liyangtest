@@ -49,8 +49,10 @@
             this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
+            this.dateTextBox = new System.Windows.Forms.TextBox();
+            this.dateLabel = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // firstNameTextBox
@@ -285,13 +287,6 @@
             this.emailTextBox.Size = new System.Drawing.Size(221, 20);
             this.emailTextBox.TabIndex = 8;
             // 
-            // dateTimePicker
-            // 
-            this.dateTimePicker.Location = new System.Drawing.Point(10, 195);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(201, 20);
-            this.dateTimePicker.TabIndex = 10;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -301,13 +296,40 @@
             this.label11.TabIndex = 24;
             this.label11.Text = "Name";
             // 
+            // dateTextBox
+            // 
+            this.dateTextBox.Location = new System.Drawing.Point(111, 195);
+            this.dateTextBox.Name = "dateTextBox";
+            this.dateTextBox.Size = new System.Drawing.Size(100, 20);
+            this.dateTextBox.TabIndex = 25;
+            // 
+            // dateLabel
+            // 
+            this.dateLabel.AutoSize = true;
+            this.dateLabel.Location = new System.Drawing.Point(44, 195);
+            this.dateLabel.Name = "dateLabel";
+            this.dateLabel.Size = new System.Drawing.Size(33, 13);
+            this.dateLabel.TabIndex = 26;
+            this.dateLabel.Text = "Date:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(217, 198);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(72, 13);
+            this.label12.TabIndex = 27;
+            this.label12.Text = "ex. 2010-12-2";
+            // 
             // NewMemberForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(345, 314);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.dateLabel);
+            this.Controls.Add(this.dateTextBox);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.phoneNumberTextBox);
@@ -359,8 +381,10 @@
         private System.Windows.Forms.TextBox phoneNumberTextBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox emailTextBox;
-        private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox dateTextBox;
+        private System.Windows.Forms.Label dateLabel;
+        private System.Windows.Forms.Label label12;
     }
 }
 

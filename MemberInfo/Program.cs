@@ -15,7 +15,8 @@ using MemberInfo;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
            // Application.Run(new SaleForm());
-           Application.Run(new LogInForm());
+           //Application.Run(new LogInForm());
+            Application.Run(new NewMemberForm());
 
         }
     }
