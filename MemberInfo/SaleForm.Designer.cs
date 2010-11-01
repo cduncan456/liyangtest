@@ -48,6 +48,11 @@
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.createNewMemButton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
+            this.searchCategoriesComboBox = new System.Windows.Forms.ComboBox();
+            this.itemsListBox = new System.Windows.Forms.ListBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // completeSaleButton
@@ -149,7 +154,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(162, 233);
+            this.label6.Location = new System.Drawing.Point(162, 249);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 13);
             this.label6.TabIndex = 12;
@@ -189,7 +194,7 @@
             this.shapeContainer1.Name = "shapeContainer1";
             this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
             this.lineShape1});
-            this.shapeContainer1.Size = new System.Drawing.Size(615, 316);
+            this.shapeContainer1.Size = new System.Drawing.Size(615, 305);
             this.shapeContainer1.TabIndex = 16;
             this.shapeContainer1.TabStop = false;
             // 
@@ -203,7 +208,7 @@
             // 
             // createNewMemButton
             // 
-            this.createNewMemButton.Location = new System.Drawing.Point(12, 105);
+            this.createNewMemButton.Location = new System.Drawing.Point(12, 72);
             this.createNewMemButton.Name = "createNewMemButton";
             this.createNewMemButton.Size = new System.Drawing.Size(122, 23);
             this.createNewMemButton.TabIndex = 17;
@@ -221,11 +226,65 @@
             this.logOutButton.UseVisualStyleBackColor = true;
             this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
             // 
+            // searchCategoriesComboBox
+            // 
+            this.searchCategoriesComboBox.FormattingEnabled = true;
+            this.searchCategoriesComboBox.Items.AddRange(new object[] {
+            "Bed",
+            "Couch",
+            "Chair",
+            "Table"});
+            this.searchCategoriesComboBox.Location = new System.Drawing.Point(13, 101);
+            this.searchCategoriesComboBox.Name = "searchCategoriesComboBox";
+            this.searchCategoriesComboBox.Size = new System.Drawing.Size(121, 21);
+            this.searchCategoriesComboBox.TabIndex = 19;
+            this.searchCategoriesComboBox.SelectedIndexChanged += new System.EventHandler(this.searchCategoriesComboBox_SelectedIndexChanged);
+            // 
+            // itemsListBox
+            // 
+            this.itemsListBox.FormattingEnabled = true;
+            this.itemsListBox.Location = new System.Drawing.Point(14, 151);
+            this.itemsListBox.Name = "itemsListBox";
+            this.itemsListBox.Size = new System.Drawing.Size(392, 95);
+            this.itemsListBox.TabIndex = 20;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(0, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 13);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "label10";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(12, 135);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(57, 13);
+            this.label11.TabIndex = 22;
+            this.label11.Text = "FurnitureId";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(167, 135);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(60, 13);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "Description";
+            // 
             // SaleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(615, 316);
+            this.ClientSize = new System.Drawing.Size(615, 305);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.itemsListBox);
+            this.Controls.Add(this.searchCategoriesComboBox);
             this.Controls.Add(this.logOutButton);
             this.Controls.Add(this.createNewMemButton);
             this.Controls.Add(this.label9);
@@ -248,7 +307,6 @@
             this.Name = "SaleForm";
             this.Text = "Sale";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SaleForm_FormClosed);
-            this.Load += new System.EventHandler(this.SaleForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,6 +334,11 @@
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.Button createNewMemButton;
         private System.Windows.Forms.Button logOutButton;
+        private System.Windows.Forms.ComboBox searchCategoriesComboBox;
+        private System.Windows.Forms.ListBox itemsListBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }
 

@@ -61,15 +61,11 @@ namespace MemberInfo
                 }
 
                 //SQL statement to add a member to the member table
-
                 OdbcCommand checkSSN = new OdbcCommand("select ssn from MEMBER WHERE ssn = " + ssn, MyConnection);
                 OdbcDataReader MySSNDataReader = checkSSN.ExecuteReader();
                 String sqlString = "INSERT INTO MEMBER (member_Id, ssn, phone_Number, fname, lname, address, member_Date) " + "VALUES (" + memberId + "," + memberInfo + ")";
                 OdbcCommand MyCommand = new OdbcCommand(sqlString, MyConnection);
                 MyCommand.ExecuteNonQuery();
-
-                //MessageBox.Show("Member with the SSN provided is already a member");
-
 
                 //Close all resources
                 MyDataReader.Close();
@@ -86,6 +82,10 @@ namespace MemberInfo
             InitializeComponent();
         }
 
+        public long getMemberIdNumber()
+        {
+            return memberId;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             memberInfoReader();
@@ -115,14 +115,11 @@ namespace MemberInfo
             try
             {
                 phoneNumber = Convert.ToInt64(phoneNumberTextBox.Text);
-
             }
             catch (Exception)
             {
                 MessageBox.Show("Invaild Input for phone number field", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //if (!ssnList.Contains(Convert.ToInt64(ssnTextBox.Text)))
-            //{
             try
             {
                 ssn = Convert.ToInt32(ssnTextBox.Text);
@@ -131,16 +128,14 @@ namespace MemberInfo
             {
                 MessageBox.Show("Invaild Input for snn field", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            memberIdTextBox.Clear();
-            firstName = "'" + Convert.ToString(firstNameTextBox.Text) + "'";
-            lastName = "'" + lastNameTextBox.Text + "'";
+
+            firstName = Convert.ToString(firstNameTextBox.Text);
+            lastName = lastNameTextBox.Text;
             memberIdTextBox.Text = Convert.ToString(memberId);
-
-            //}
-
             date = dateTextBox.Text;
-            String memberInfo = ssn + ", " + phoneNumber + ", " + firstName + ", " + lastName + ", " + address + " " + city + " " + state + " " + zipCode + "', " + "'" + date + "'";
+            String memberInfo = ssn + ", " + "'" + phoneNumber + "'" + ", " + "'" + firstName + "'" + ", " + "'" + lastName + "'" + ", " + address + " " + city + " " + state + " " + zipCode + "', " + "'" + date + "'";
             connection(memberInfo);
+            MessageBox.Show(firstName + " " + lastName + " has been added as a member. MemberId: " + getMemberIdNumber());
         }
 
     }
