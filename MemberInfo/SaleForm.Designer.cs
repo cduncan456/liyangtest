@@ -53,6 +53,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.searchBy = new System.Windows.Forms.Label();
+            this.typeLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // completeSaleButton
@@ -208,7 +211,7 @@
             // 
             // createNewMemButton
             // 
-            this.createNewMemButton.Location = new System.Drawing.Point(12, 72);
+            this.createNewMemButton.Location = new System.Drawing.Point(301, 96);
             this.createNewMemButton.Name = "createNewMemButton";
             this.createNewMemButton.Size = new System.Drawing.Size(122, 23);
             this.createNewMemButton.TabIndex = 17;
@@ -234,7 +237,7 @@
             "Couch",
             "Chair",
             "Table"});
-            this.searchCategoriesComboBox.Location = new System.Drawing.Point(13, 101);
+            this.searchCategoriesComboBox.Location = new System.Drawing.Point(149, 96);
             this.searchCategoriesComboBox.Name = "searchCategoriesComboBox";
             this.searchCategoriesComboBox.Size = new System.Drawing.Size(121, 21);
             this.searchCategoriesComboBox.TabIndex = 19;
@@ -275,11 +278,47 @@
             this.label12.TabIndex = 23;
             this.label12.Text = "Description";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "color",
+            "origin",
+            "style",
+            "furniture_Id",
+            "category"});
+            this.comboBox1.Location = new System.Drawing.Point(12, 96);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 24;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // searchBy
+            // 
+            this.searchBy.AutoSize = true;
+            this.searchBy.Location = new System.Drawing.Point(46, 73);
+            this.searchBy.Name = "searchBy";
+            this.searchBy.Size = new System.Drawing.Size(56, 13);
+            this.searchBy.TabIndex = 25;
+            this.searchBy.Text = "Search By";
+            // 
+            // typeLabel
+            // 
+            this.typeLabel.AutoSize = true;
+            this.typeLabel.Location = new System.Drawing.Point(196, 73);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Size = new System.Drawing.Size(31, 13);
+            this.typeLabel.TabIndex = 26;
+            this.typeLabel.Text = "Type";
+            // 
             // SaleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(615, 305);
+            this.Controls.Add(this.typeLabel);
+            this.Controls.Add(this.searchBy);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -339,6 +378,9 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label searchBy;
+        private System.Windows.Forms.Label typeLabel;
     }
 }
 

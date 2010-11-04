@@ -31,9 +31,18 @@ namespace MemberInfo
                 OdbcConnection MyConnection = new OdbcConnection(MyConString);
 
                 MyConnection.Open();
-                //MessageBox.Show("!!! success, connected successfully !!!");
+                String searchBy = comboBox1.Text.ToString();                
 
-                OdbcCommand getSelectedCategory = new OdbcCommand("SELECT `furniture_Id`, Description, category FROM FURNITURE WHERE category = " + "'" +searchCategoriesComboBox.Text.ToString() + "'", MyConnection);
+                OdbcCommand getType = new OdbcCommand("SELECT `" + searchBy + "` FROM FURNITURE", MyConnection);
+                OdbcDataReader getTypeReader = getType.ExecuteReader();
+                while (getTypeReader.Read())
+                {
+                    if(!searchCategoriesComboBox.Items.Contains(getTypeReader.GetString(0))){
+                         searchCategoriesComboBox.Items.Add(getTypeReader.GetString(0));
+                    }
+                }
+                String searchType = searchCategoriesComboBox.Text.ToString();
+                OdbcCommand getSelectedCategory = new OdbcCommand("SELECT `furniture_Id`, Description, " + searchBy + " FROM FURNITURE WHERE " + searchBy + " = '" + searchType + "'", MyConnection);
 
                 //OdbcDataReader MyDataReader;
                 OdbcDataReader MyDataReader = getSelectedCategory.ExecuteReader();
@@ -83,6 +92,14 @@ namespace MemberInfo
                 itemsListBox.Items.Add("There are no furniture items of that category in the database");
             }
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            itemsListBox.Items.Clear();
+            searchCategoriesComboBox.Items.Clear();
+            connectToDb();
+        }
+
 
     }
 }

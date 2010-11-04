@@ -31,3 +31,14 @@ C:\Users\vwilson1\Desktop\milestone2\MemberInfo\obj\x86\Debug\GenerateResource.r
 C:\Users\vwilson1\Desktop\milestone2\MemberInfo\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\vwilson1\Desktop\milestone2\MemberInfo\bin\Debug\MemberInfo.exe
 C:\Users\vwilson1\Desktop\milestone2\MemberInfo\bin\Debug\MemberInfo.pdb
+C:\Users\cduncan4\Desktop\MileStone2\MemberInfo\obj\x86\Debug\MemberInfo.exe
+C:\Users\cduncan4\Desktop\MileStone2\MemberInfo\obj\x86\Debug\MemberInfo.pdb
+C:\Users\cduncan4\Desktop\MileStone2\MemberInfo\bin\Debug\MemberInfo.exe
+C:\Users\cduncan4\Desktop\MileStone2\MemberInfo\bin\Debug\MemberInfo.pdb
+C:\Users\cduncan4\Desktop\MileStone2\MemberInfo\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\cduncan4\Desktop\MileStone2\MemberInfo\obj\x86\Debug\MemberInfo.LogInForm.resources
+C:\Users\cduncan4\Desktop\MileStone2\MemberInfo\obj\x86\Debug\MemberInfo.NewMemberForm.resources
+C:\Users\cduncan4\Desktop\MileStone2\MemberInfo\obj\x86\Debug\MemberInfo.SaleForm.resources
+C:\Users\cduncan4\Desktop\MileStone2\MemberInfo\obj\x86\Debug\MemberInfo.Properties.Resources.resources
+C:\Users\cduncan4\Desktop\MileStone2\MemberInfo\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\cduncan4\Desktop\MileStone2\MemberInfo\obj\x86\Debug\GenerateResource.write.1.tlog
