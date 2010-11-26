@@ -100,6 +100,60 @@ namespace MemberInfo
             connectToDb();
         }
 
+        private void completeSaleButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void memberSearchButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string MyConString = "DRIVER={MySQL ODBC 5.1 Driver};" +
+                         "SERVER=turing.cs.westga.edu;" +
+                         "PORT=3306;" +
+                         "DATABASE=vwilson1;" +
+                         "UID=vwilson1;" +
+                         "PASSWORD=vw881376";
+
+                OdbcConnection MyConnection = new OdbcConnection(MyConString);
+                MyConnection.Open();
+
+                OdbcCommand getMemberID = new OdbcCommand("SELECT member_Id FROM MEMBER WHERE " + memberPhoneSearch.Text + " = phone_number", MyConnection);
+
+                OdbcDataReader getMemberIDReader = getMemberID.ExecuteReader();
+
+                String test = "";
+
+                while (getMemberIDReader.Read())
+                {
+                    memberIdResult.Text = getMemberIDReader.GetString(0);
+                    test = getMemberIDReader.GetString(0);
+                }
+
+                if (test.Length < 1)
+                {
+                    throw new System.ArgumentException("Empty");
+                }
+
+                //Close all resources
+                getMemberIDReader.Close();
+                MyConnection.Close();
+
+
+                memberIdResult.Visible = true;
+                resultLabelMember.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                memberIdResult.Visible = false;
+                resultLabelMember.Visible = false;
+                MessageBox.Show("Member's Phone number is invalid");
+            }
+        }
+
+ 
+
 
     }
 }
