@@ -54,13 +54,21 @@
             this.typeLabel = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.resultLabelName = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.resultLabelMember = new System.Windows.Forms.Label();
+            this.memberIdResult = new System.Windows.Forms.TextBox();
+            this.memberSearchButton = new System.Windows.Forms.Button();
+            this.memberPhoneSearch = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.label6 = new System.Windows.Forms.Label();
-            this.memberPhoneSearch = new System.Windows.Forms.TextBox();
-            this.memberSearchButton = new System.Windows.Forms.Button();
-            this.memberIdResult = new System.Windows.Forms.TextBox();
-            this.resultLabelMember = new System.Windows.Forms.Label();
+            this.memberNameResult = new System.Windows.Forms.TextBox();
+            this.memberAddressResult = new System.Windows.Forms.TextBox();
+            this.resultLabelAddress = new System.Windows.Forms.Label();
+            this.resultLabelMemberSince = new System.Windows.Forms.Label();
+            this.memberSinceResult = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -221,7 +229,7 @@
             "Couch",
             "Chair",
             "Table"});
-            this.searchCategoriesComboBox.Location = new System.Drawing.Point(145, 47);
+            this.searchCategoriesComboBox.Location = new System.Drawing.Point(217, 110);
             this.searchCategoriesComboBox.Name = "searchCategoriesComboBox";
             this.searchCategoriesComboBox.Size = new System.Drawing.Size(121, 21);
             this.searchCategoriesComboBox.TabIndex = 19;
@@ -230,7 +238,7 @@
             // itemsListBox
             // 
             this.itemsListBox.FormattingEnabled = true;
-            this.itemsListBox.Location = new System.Drawing.Point(10, 102);
+            this.itemsListBox.Location = new System.Drawing.Point(11, 161);
             this.itemsListBox.Name = "itemsListBox";
             this.itemsListBox.Size = new System.Drawing.Size(392, 95);
             this.itemsListBox.TabIndex = 20;
@@ -238,7 +246,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 86);
+            this.label11.Location = new System.Drawing.Point(9, 145);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(57, 13);
             this.label11.TabIndex = 22;
@@ -247,7 +255,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(163, 86);
+            this.label12.Location = new System.Drawing.Point(164, 145);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(60, 13);
             this.label12.TabIndex = 23;
@@ -262,7 +270,7 @@
             "style",
             "furniture_Id",
             "category"});
-            this.comboBox1.Location = new System.Drawing.Point(8, 47);
+            this.comboBox1.Location = new System.Drawing.Point(80, 110);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 24;
@@ -271,7 +279,7 @@
             // searchBy
             // 
             this.searchBy.AutoSize = true;
-            this.searchBy.Location = new System.Drawing.Point(42, 24);
+            this.searchBy.Location = new System.Drawing.Point(114, 87);
             this.searchBy.Name = "searchBy";
             this.searchBy.Size = new System.Drawing.Size(56, 13);
             this.searchBy.TabIndex = 25;
@@ -280,7 +288,7 @@
             // typeLabel
             // 
             this.typeLabel.AutoSize = true;
-            this.typeLabel.Location = new System.Drawing.Point(192, 24);
+            this.typeLabel.Location = new System.Drawing.Point(264, 87);
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Size = new System.Drawing.Size(31, 13);
             this.typeLabel.TabIndex = 26;
@@ -299,12 +307,25 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.memberSinceResult);
+            this.tabPage1.Controls.Add(this.resultLabelMemberSince);
+            this.tabPage1.Controls.Add(this.memberAddressResult);
+            this.tabPage1.Controls.Add(this.resultLabelAddress);
+            this.tabPage1.Controls.Add(this.memberNameResult);
+            this.tabPage1.Controls.Add(this.resultLabelName);
+            this.tabPage1.Controls.Add(this.label13);
+            this.tabPage1.Controls.Add(this.label10);
+            this.tabPage1.Controls.Add(this.resultLabelMember);
+            this.tabPage1.Controls.Add(this.memberIdResult);
             this.tabPage1.Controls.Add(this.itemsListBox);
             this.tabPage1.Controls.Add(this.typeLabel);
+            this.tabPage1.Controls.Add(this.memberSearchButton);
             this.tabPage1.Controls.Add(this.searchBy);
             this.tabPage1.Controls.Add(this.searchCategoriesComboBox);
+            this.tabPage1.Controls.Add(this.memberPhoneSearch);
             this.tabPage1.Controls.Add(this.comboBox1);
             this.tabPage1.Controls.Add(this.label11);
+            this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -312,6 +333,82 @@
             this.tabPage1.Size = new System.Drawing.Size(714, 341);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Search";
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // resultLabelName
+            // 
+            this.resultLabelName.AutoSize = true;
+            this.resultLabelName.Location = new System.Drawing.Point(521, 188);
+            this.resultLabelName.Name = "resultLabelName";
+            this.resultLabelName.Size = new System.Drawing.Size(35, 13);
+            this.resultLabelName.TabIndex = 34;
+            this.resultLabelName.Text = "Name";
+            this.resultLabelName.Visible = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(453, 24);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(205, 31);
+            this.label13.TabIndex = 33;
+            this.label13.Text = "Member Search";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(91, 24);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(216, 31);
+            this.label10.TabIndex = 32;
+            this.label10.Text = "Furniture Search";
+            // 
+            // resultLabelMember
+            // 
+            this.resultLabelMember.AutoSize = true;
+            this.resultLabelMember.Location = new System.Drawing.Point(435, 188);
+            this.resultLabelMember.Name = "resultLabelMember";
+            this.resultLabelMember.Size = new System.Drawing.Size(59, 13);
+            this.resultLabelMember.TabIndex = 31;
+            this.resultLabelMember.Text = "Member ID";
+            this.resultLabelMember.Visible = false;
+            // 
+            // memberIdResult
+            // 
+            this.memberIdResult.Location = new System.Drawing.Point(438, 204);
+            this.memberIdResult.Name = "memberIdResult";
+            this.memberIdResult.Size = new System.Drawing.Size(56, 20);
+            this.memberIdResult.TabIndex = 30;
+            this.memberIdResult.Visible = false;
+            // 
+            // memberSearchButton
+            // 
+            this.memberSearchButton.Location = new System.Drawing.Point(516, 140);
+            this.memberSearchButton.Name = "memberSearchButton";
+            this.memberSearchButton.Size = new System.Drawing.Size(75, 23);
+            this.memberSearchButton.TabIndex = 29;
+            this.memberSearchButton.Text = "Search";
+            this.memberSearchButton.UseVisualStyleBackColor = true;
+            this.memberSearchButton.Click += new System.EventHandler(this.memberSearchButton_Click);
+            // 
+            // memberPhoneSearch
+            // 
+            this.memberPhoneSearch.Location = new System.Drawing.Point(506, 113);
+            this.memberPhoneSearch.MaxLength = 10;
+            this.memberPhoneSearch.Name = "memberPhoneSearch";
+            this.memberPhoneSearch.Size = new System.Drawing.Size(97, 20);
+            this.memberPhoneSearch.TabIndex = 28;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(482, 87);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(142, 13);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Member ID Lookup Phone #";
             // 
             // tabPage2
             // 
@@ -349,63 +446,62 @@
             this.shapeContainer2.TabIndex = 16;
             this.shapeContainer2.TabStop = false;
             // 
-            // label6
+            // memberNameResult
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(246, 370);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(142, 13);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Member ID Lookup Phone #";
+            this.memberNameResult.Location = new System.Drawing.Point(521, 204);
+            this.memberNameResult.Name = "memberNameResult";
+            this.memberNameResult.Size = new System.Drawing.Size(137, 20);
+            this.memberNameResult.TabIndex = 35;
+            this.memberNameResult.Visible = false;
             // 
-            // memberPhoneSearch
+            // memberAddressResult
             // 
-            this.memberPhoneSearch.Location = new System.Drawing.Point(270, 396);
-            this.memberPhoneSearch.MaxLength = 10;
-            this.memberPhoneSearch.Name = "memberPhoneSearch";
-            this.memberPhoneSearch.Size = new System.Drawing.Size(97, 20);
-            this.memberPhoneSearch.TabIndex = 28;
+            this.memberAddressResult.Location = new System.Drawing.Point(438, 252);
+            this.memberAddressResult.Name = "memberAddressResult";
+            this.memberAddressResult.Size = new System.Drawing.Size(220, 20);
+            this.memberAddressResult.TabIndex = 37;
+            this.memberAddressResult.Visible = false;
+            this.memberAddressResult.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
-            // memberSearchButton
+            // resultLabelAddress
             // 
-            this.memberSearchButton.Location = new System.Drawing.Point(280, 423);
-            this.memberSearchButton.Name = "memberSearchButton";
-            this.memberSearchButton.Size = new System.Drawing.Size(75, 23);
-            this.memberSearchButton.TabIndex = 29;
-            this.memberSearchButton.Text = "Search";
-            this.memberSearchButton.UseVisualStyleBackColor = true;
-            this.memberSearchButton.Click += new System.EventHandler(this.memberSearchButton_Click);
+            this.resultLabelAddress.AutoSize = true;
+            this.resultLabelAddress.Location = new System.Drawing.Point(435, 236);
+            this.resultLabelAddress.Name = "resultLabelAddress";
+            this.resultLabelAddress.Size = new System.Drawing.Size(45, 13);
+            this.resultLabelAddress.TabIndex = 36;
+            this.resultLabelAddress.Text = "Address";
+            this.resultLabelAddress.Visible = false;
+            this.resultLabelAddress.Click += new System.EventHandler(this.label14_Click);
             // 
-            // memberIdResult
+            // resultLabelMemberSince
             // 
-            this.memberIdResult.Location = new System.Drawing.Point(427, 396);
-            this.memberIdResult.Name = "memberIdResult";
-            this.memberIdResult.Size = new System.Drawing.Size(56, 20);
-            this.memberIdResult.TabIndex = 30;
-            this.memberIdResult.Visible = false;
+            this.resultLabelMemberSince.AutoSize = true;
+            this.resultLabelMemberSince.Location = new System.Drawing.Point(435, 287);
+            this.resultLabelMemberSince.Name = "resultLabelMemberSince";
+            this.resultLabelMemberSince.Size = new System.Drawing.Size(75, 13);
+            this.resultLabelMemberSince.TabIndex = 38;
+            this.resultLabelMemberSince.Text = "Member Since";
+            this.resultLabelMemberSince.Visible = false;
             // 
-            // resultLabelMember
+            // memberSinceResult
             // 
-            this.resultLabelMember.AutoSize = true;
-            this.resultLabelMember.Location = new System.Drawing.Point(424, 370);
-            this.resultLabelMember.Name = "resultLabelMember";
-            this.resultLabelMember.Size = new System.Drawing.Size(59, 13);
-            this.resultLabelMember.TabIndex = 31;
-            this.resultLabelMember.Text = "Member ID";
-            this.resultLabelMember.Visible = false;
+            this.memberSinceResult.AutoSize = true;
+            this.memberSinceResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.memberSinceResult.Location = new System.Drawing.Point(439, 311);
+            this.memberSinceResult.Name = "memberSinceResult";
+            this.memberSinceResult.Size = new System.Drawing.Size(84, 13);
+            this.memberSinceResult.TabIndex = 39;
+            this.memberSinceResult.Text = "member since";
+            this.memberSinceResult.Visible = false;
             // 
             // SaleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(735, 468);
-            this.Controls.Add(this.resultLabelMember);
-            this.Controls.Add(this.memberIdResult);
-            this.Controls.Add(this.memberSearchButton);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.memberPhoneSearch);
             this.Controls.Add(this.logOutButton);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.createNewMemButton);
             this.Name = "SaleForm";
             this.Text = "Sale";
@@ -416,7 +512,6 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -455,6 +550,14 @@
         private System.Windows.Forms.Button memberSearchButton;
         private System.Windows.Forms.TextBox memberIdResult;
         private System.Windows.Forms.Label resultLabelMember;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label resultLabelName;
+        private System.Windows.Forms.TextBox memberAddressResult;
+        private System.Windows.Forms.Label resultLabelAddress;
+        private System.Windows.Forms.TextBox memberNameResult;
+        private System.Windows.Forms.Label memberSinceResult;
+        private System.Windows.Forms.Label resultLabelMemberSince;
     }
 }
 

@@ -119,7 +119,7 @@ namespace MemberInfo
                 OdbcConnection MyConnection = new OdbcConnection(MyConString);
                 MyConnection.Open();
 
-                OdbcCommand getMemberID = new OdbcCommand("SELECT member_Id FROM MEMBER WHERE " + memberPhoneSearch.Text + " = phone_number", MyConnection);
+                OdbcCommand getMemberID = new OdbcCommand("SELECT member_Id, fname, lname, address, member_date FROM MEMBER WHERE " + memberPhoneSearch.Text + " = phone_number", MyConnection);
 
                 OdbcDataReader getMemberIDReader = getMemberID.ExecuteReader();
 
@@ -129,6 +129,11 @@ namespace MemberInfo
                 {
                     memberIdResult.Text = getMemberIDReader.GetString(0);
                     test = getMemberIDReader.GetString(0);
+                    memberNameResult.Text = getMemberIDReader.GetString(1);
+                    memberNameResult.Text += " " + getMemberIDReader.GetString(2);
+                    memberAddressResult.Text = getMemberIDReader.GetString(3);
+                    memberSinceResult.Text = getMemberIDReader.GetString(4);
+
                 }
 
                 if (test.Length < 1)
@@ -140,16 +145,45 @@ namespace MemberInfo
                 getMemberIDReader.Close();
                 MyConnection.Close();
 
-
-                memberIdResult.Visible = true;
+                
                 resultLabelMember.Visible = true;
+                memberIdResult.Visible = true;
+                resultLabelName.Visible = true;
+                memberNameResult.Visible = true;
+                resultLabelAddress.Visible = true;
+                memberAddressResult.Visible = true;
+                resultLabelMemberSince.Visible = true;
+                memberSinceResult.Visible = true;
+
             }
             catch (Exception ex)
             {
-                memberIdResult.Visible = false;
                 resultLabelMember.Visible = false;
+                memberIdResult.Visible = false;
+                resultLabelName.Visible = false;
+                memberNameResult.Visible = false;
+                resultLabelAddress.Visible = false;
+                memberAddressResult.Visible = false;
+                resultLabelMemberSince.Visible = false;
+                memberSinceResult.Visible = false;
+
                 MessageBox.Show("Member's Phone number is invalid");
             }
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
  
