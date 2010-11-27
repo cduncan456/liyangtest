@@ -43,7 +43,6 @@
             this.employeeIdBox.Name = "employeeIdBox";
             this.employeeIdBox.Size = new System.Drawing.Size(100, 20);
             this.employeeIdBox.TabIndex = 0;
-            this.employeeIdBox.TextChanged += new System.EventHandler(this.employeeIdBox_TextChanged);
             // 
             // label1
             // 
@@ -53,7 +52,6 @@
             this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Employee ID";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // passwordBox
             // 
@@ -62,8 +60,6 @@
             this.passwordBox.PasswordChar = '*';
             this.passwordBox.Size = new System.Drawing.Size(100, 20);
             this.passwordBox.TabIndex = 3;
-            this.passwordBox.Visible = false;
-            this.passwordBox.TextChanged += new System.EventHandler(this.passwordBox_TextChanged);
             // 
             // label2
             // 
@@ -83,7 +79,6 @@
             this.loginButton.TabIndex = 5;
             this.loginButton.Text = "Log In";
             this.loginButton.UseVisualStyleBackColor = true;
-            this.loginButton.Visible = false;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // button1
@@ -109,7 +104,6 @@
             this.Controls.Add(this.employeeIdBox);
             this.Name = "LogInForm";
             this.Text = "Employee Log In ";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

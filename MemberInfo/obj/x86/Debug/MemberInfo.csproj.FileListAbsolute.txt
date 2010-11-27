@@ -53,3 +53,4 @@ C:\Users\smalik2\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\MemberInfo.SaleFor
 C:\Users\smalik2\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\MemberInfo.Properties.Resources.resources
 C:\Users\smalik2\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\smalik2\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\vwilson1\Desktop\New folder\MemberInfo\obj\x86\Debug\MemberInfo.adminQueryInterface.resources

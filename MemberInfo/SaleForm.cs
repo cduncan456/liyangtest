@@ -12,9 +12,16 @@ namespace MemberInfo
 {
     public partial class SaleForm : Form
     {
-        public SaleForm()
+        private int isAdmin;
+        public SaleForm(int isAnAdmin, string userName)
         {
+            isAdmin = isAnAdmin;
             InitializeComponent();
+            if (isAdmin == 1)
+            {
+                sqlButton.Visible = true;
+            }
+            welcomeLabel.Text += userName;
         }
 
         public void connectToDb()
@@ -186,8 +193,10 @@ namespace MemberInfo
 
         }
 
- 
-
-
+        private void sqlButton_Click(object sender, EventArgs e)
+        {
+            adminQueryInterface inst = new adminQueryInterface();
+            inst.Show();
+        }
     }
 }

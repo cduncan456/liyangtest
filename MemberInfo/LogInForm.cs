@@ -14,21 +14,17 @@ namespace MemberInfo
     {
         List<int> employeeNumberList = new List<int>();
         List<String> employeePassList = new List<String>();
+        List<int> employeeAdmin = new List<int>();
+
         int employeeNumberLoggedin;
         String employeePasswordLoggedin;
+        int adminBoolean;
+        String employeeName;
 
         public LogInForm()
         {
             InitializeComponent();
-            fillEmployeeInfo();
-            /*
-            employeeNumberList.Add(123456);
-            employeeNumberList.Add(386226);
-            employeeNumberList.Add(133337);
-            employeePassList.Add("hello");
-            employeePassList.Add("cake");
-            employeePassList.Add("itoldyou");*/
-
+            //fillEmployeeInfo();
         }
 
         private void fillEmployeeInfo()
@@ -46,15 +42,18 @@ namespace MemberInfo
 
                 MyConnection.Open();
 
-                OdbcCommand MyCommand = new OdbcCommand("select `employee_Id`, `password` from EMPLOYEE", MyConnection);
+                OdbcCommand MyCommand = new OdbcCommand("select `employee_Id`, `password`, `Admin`, `fname`, `lname` from EMPLOYEE where `employee_Id` = " + Convert.ToInt32(employeeIdBox.Text.ToString()) + " and `password`= '" + passwordBox.Text + "'", MyConnection);
 
                 OdbcDataReader MyDataReader;
                 MyDataReader = MyCommand.ExecuteReader();
                 while (MyDataReader.Read())
                 {
 
-                    employeeNumberList.Add(Convert.ToInt32(MyDataReader.GetString(0)));
-                    employeePassList.Add(MyDataReader.GetString(1));
+                    employeeNumberLoggedin = Convert.ToInt32(MyDataReader.GetString(0));
+                    employeePasswordLoggedin = MyDataReader.GetString(1);
+                    adminBoolean = Convert.ToInt32(MyDataReader.GetString(2));
+                    employeeName = MyDataReader.GetString(3);
+                    employeeName += " " +  MyDataReader.GetString(4);
                 }
 
                 //Close all resources
@@ -67,7 +66,7 @@ namespace MemberInfo
                 MessageBox.Show("Could not connect to SQL Server for Employee Info.", "Important Note", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
             }
         }
-
+        /*
         public int getEmployeeNumber()
         {
             return employeeNumberLoggedin;
@@ -75,11 +74,6 @@ namespace MemberInfo
 
 
         private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
@@ -146,22 +140,27 @@ namespace MemberInfo
                 loginButton.Visible = false;
             }
         }
-
+        */
         private void loginButton_Click(object sender, EventArgs e)
         {
-
-           
-            LogInForm.ActiveForm.Visible = false;
-            SaleForm sale1 = new SaleForm();
-            sale1.Activate();
-            sale1.Show();
             
+            fillEmployeeInfo();
+            if (employeeNumberLoggedin == Convert.ToInt32(employeeIdBox.Text.ToString()) && passwordBox.Text == employeePasswordLoggedin)
+            {
+                LogInForm.ActiveForm.Visible = false;
+                SaleForm sale1 = new SaleForm(adminBoolean, employeeName);
+                sale1.Activate();
+                sale1.Show();
+            }
+            else
+            {
+                MessageBox.Show("Input correct id or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             System.Environment.Exit(0);
-
         }
 
     }

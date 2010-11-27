@@ -59,12 +59,5 @@ namespace MemberInfo.Properties {
                 resourceCulture = value;
             }
         }
-        
-        internal static System.Drawing.Bitmap glass {
-            get {
-                object obj = ResourceManager.GetObject("glass", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

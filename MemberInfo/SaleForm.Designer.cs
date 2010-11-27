@@ -54,6 +54,11 @@
             this.typeLabel = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.memberSinceResult = new System.Windows.Forms.Label();
+            this.resultLabelMemberSince = new System.Windows.Forms.Label();
+            this.memberAddressResult = new System.Windows.Forms.TextBox();
+            this.resultLabelAddress = new System.Windows.Forms.Label();
+            this.memberNameResult = new System.Windows.Forms.TextBox();
             this.resultLabelName = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -64,14 +69,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
-            this.memberNameResult = new System.Windows.Forms.TextBox();
-            this.memberAddressResult = new System.Windows.Forms.TextBox();
-            this.resultLabelAddress = new System.Windows.Forms.Label();
-            this.resultLabelMemberSince = new System.Windows.Forms.Label();
-            this.memberSinceResult = new System.Windows.Forms.Label();
+            this.sqlButton = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.welcomeLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // completeSaleButton
@@ -307,6 +311,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.memberSinceResult);
             this.tabPage1.Controls.Add(this.resultLabelMemberSince);
             this.tabPage1.Controls.Add(this.memberAddressResult);
@@ -334,6 +339,55 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Search";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // memberSinceResult
+            // 
+            this.memberSinceResult.AutoSize = true;
+            this.memberSinceResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.memberSinceResult.Location = new System.Drawing.Point(439, 311);
+            this.memberSinceResult.Name = "memberSinceResult";
+            this.memberSinceResult.Size = new System.Drawing.Size(84, 13);
+            this.memberSinceResult.TabIndex = 39;
+            this.memberSinceResult.Text = "member since";
+            this.memberSinceResult.Visible = false;
+            // 
+            // resultLabelMemberSince
+            // 
+            this.resultLabelMemberSince.AutoSize = true;
+            this.resultLabelMemberSince.Location = new System.Drawing.Point(435, 287);
+            this.resultLabelMemberSince.Name = "resultLabelMemberSince";
+            this.resultLabelMemberSince.Size = new System.Drawing.Size(75, 13);
+            this.resultLabelMemberSince.TabIndex = 38;
+            this.resultLabelMemberSince.Text = "Member Since";
+            this.resultLabelMemberSince.Visible = false;
+            // 
+            // memberAddressResult
+            // 
+            this.memberAddressResult.Location = new System.Drawing.Point(438, 252);
+            this.memberAddressResult.Name = "memberAddressResult";
+            this.memberAddressResult.Size = new System.Drawing.Size(220, 20);
+            this.memberAddressResult.TabIndex = 37;
+            this.memberAddressResult.Visible = false;
+            this.memberAddressResult.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            // 
+            // resultLabelAddress
+            // 
+            this.resultLabelAddress.AutoSize = true;
+            this.resultLabelAddress.Location = new System.Drawing.Point(435, 236);
+            this.resultLabelAddress.Name = "resultLabelAddress";
+            this.resultLabelAddress.Size = new System.Drawing.Size(45, 13);
+            this.resultLabelAddress.TabIndex = 36;
+            this.resultLabelAddress.Text = "Address";
+            this.resultLabelAddress.Visible = false;
+            this.resultLabelAddress.Click += new System.EventHandler(this.label14_Click);
+            // 
+            // memberNameResult
+            // 
+            this.memberNameResult.Location = new System.Drawing.Point(521, 204);
+            this.memberNameResult.Name = "memberNameResult";
+            this.memberNameResult.Size = new System.Drawing.Size(137, 20);
+            this.memberNameResult.TabIndex = 35;
+            this.memberNameResult.Visible = false;
             // 
             // resultLabelName
             // 
@@ -446,60 +500,43 @@
             this.shapeContainer2.TabIndex = 16;
             this.shapeContainer2.TabStop = false;
             // 
-            // memberNameResult
+            // sqlButton
             // 
-            this.memberNameResult.Location = new System.Drawing.Point(521, 204);
-            this.memberNameResult.Name = "memberNameResult";
-            this.memberNameResult.Size = new System.Drawing.Size(137, 20);
-            this.memberNameResult.TabIndex = 35;
-            this.memberNameResult.Visible = false;
+            this.sqlButton.Location = new System.Drawing.Point(521, 413);
+            this.sqlButton.Name = "sqlButton";
+            this.sqlButton.Size = new System.Drawing.Size(87, 33);
+            this.sqlButton.TabIndex = 28;
+            this.sqlButton.Text = "SQL ";
+            this.sqlButton.UseVisualStyleBackColor = true;
+            this.sqlButton.Visible = false;
+            this.sqlButton.Click += new System.EventHandler(this.sqlButton_Click);
             // 
-            // memberAddressResult
+            // dataGridView1
             // 
-            this.memberAddressResult.Location = new System.Drawing.Point(438, 252);
-            this.memberAddressResult.Name = "memberAddressResult";
-            this.memberAddressResult.Size = new System.Drawing.Size(220, 20);
-            this.memberAddressResult.TabIndex = 37;
-            this.memberAddressResult.Visible = false;
-            this.memberAddressResult.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 262);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(391, 62);
+            this.dataGridView1.TabIndex = 40;
             // 
-            // resultLabelAddress
+            // welcomeLabel
             // 
-            this.resultLabelAddress.AutoSize = true;
-            this.resultLabelAddress.Location = new System.Drawing.Point(435, 236);
-            this.resultLabelAddress.Name = "resultLabelAddress";
-            this.resultLabelAddress.Size = new System.Drawing.Size(45, 13);
-            this.resultLabelAddress.TabIndex = 36;
-            this.resultLabelAddress.Text = "Address";
-            this.resultLabelAddress.Visible = false;
-            this.resultLabelAddress.Click += new System.EventHandler(this.label14_Click);
-            // 
-            // resultLabelMemberSince
-            // 
-            this.resultLabelMemberSince.AutoSize = true;
-            this.resultLabelMemberSince.Location = new System.Drawing.Point(435, 287);
-            this.resultLabelMemberSince.Name = "resultLabelMemberSince";
-            this.resultLabelMemberSince.Size = new System.Drawing.Size(75, 13);
-            this.resultLabelMemberSince.TabIndex = 38;
-            this.resultLabelMemberSince.Text = "Member Since";
-            this.resultLabelMemberSince.Visible = false;
-            // 
-            // memberSinceResult
-            // 
-            this.memberSinceResult.AutoSize = true;
-            this.memberSinceResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.memberSinceResult.Location = new System.Drawing.Point(439, 311);
-            this.memberSinceResult.Name = "memberSinceResult";
-            this.memberSinceResult.Size = new System.Drawing.Size(84, 13);
-            this.memberSinceResult.TabIndex = 39;
-            this.memberSinceResult.Text = "member since";
-            this.memberSinceResult.Visible = false;
+            this.welcomeLabel.AutoSize = true;
+            this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.welcomeLabel.Location = new System.Drawing.Point(185, 417);
+            this.welcomeLabel.Name = "welcomeLabel";
+            this.welcomeLabel.Size = new System.Drawing.Size(127, 29);
+            this.welcomeLabel.TabIndex = 29;
+            this.welcomeLabel.Text = "Welcome: ";
             // 
             // SaleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(735, 468);
+            this.Controls.Add(this.welcomeLabel);
+            this.Controls.Add(this.sqlButton);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.logOutButton);
             this.Controls.Add(this.createNewMemButton);
@@ -511,7 +548,9 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -558,6 +597,9 @@
         private System.Windows.Forms.TextBox memberNameResult;
         private System.Windows.Forms.Label memberSinceResult;
         private System.Windows.Forms.Label resultLabelMemberSince;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button sqlButton;
+        private System.Windows.Forms.Label welcomeLabel;
     }
 }
 
