@@ -54,3 +54,15 @@ C:\Users\smalik2\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\MemberInfo.Propert
 C:\Users\smalik2\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\smalik2\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\vwilson1\Desktop\New folder\MemberInfo\obj\x86\Debug\MemberInfo.adminQueryInterface.resources
+U:\11_27_10_yang\MemberInfo\obj\x86\Debug\MemberInfo.exe
+U:\11_27_10_yang\MemberInfo\obj\x86\Debug\MemberInfo.pdb
+U:\11_27_10_yang\MemberInfo\bin\Debug\MemberInfo.exe
+U:\11_27_10_yang\MemberInfo\bin\Debug\MemberInfo.pdb
+U:\11_27_10_yang\MemberInfo\obj\x86\Debug\ResolveAssemblyReference.cache
+U:\11_27_10_yang\MemberInfo\obj\x86\Debug\MemberInfo.adminQueryInterface.resources
+U:\11_27_10_yang\MemberInfo\obj\x86\Debug\MemberInfo.LogInForm.resources
+U:\11_27_10_yang\MemberInfo\obj\x86\Debug\MemberInfo.NewMemberForm.resources
+U:\11_27_10_yang\MemberInfo\obj\x86\Debug\MemberInfo.SaleForm.resources
+U:\11_27_10_yang\MemberInfo\obj\x86\Debug\MemberInfo.Properties.Resources.resources
+U:\11_27_10_yang\MemberInfo\obj\x86\Debug\GenerateResource.read.1.tlog
+U:\11_27_10_yang\MemberInfo\obj\x86\Debug\GenerateResource.write.1.tlog

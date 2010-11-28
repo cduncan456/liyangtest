@@ -46,36 +46,29 @@
             this.createNewMemButton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
             this.searchCategoriesComboBox = new System.Windows.Forms.ComboBox();
-            this.itemsListBox = new System.Windows.Forms.ListBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.searchBy = new System.Windows.Forms.Label();
             this.typeLabel = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.queryResultGrid = new System.Windows.Forms.DataGridView();
             this.memberSinceResult = new System.Windows.Forms.Label();
             this.resultLabelMemberSince = new System.Windows.Forms.Label();
-            this.memberAddressResult = new System.Windows.Forms.TextBox();
-            this.resultLabelAddress = new System.Windows.Forms.Label();
-            this.memberNameResult = new System.Windows.Forms.TextBox();
-            this.resultLabelName = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.resultLabelMember = new System.Windows.Forms.Label();
-            this.memberIdResult = new System.Windows.Forms.TextBox();
             this.memberSearchButton = new System.Windows.Forms.Button();
             this.memberPhoneSearch = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.sqlButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.welcomeLabel = new System.Windows.Forms.Label();
+            this.memberResultGrid = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.queryResultGrid)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memberResultGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // completeSaleButton
@@ -239,32 +232,6 @@
             this.searchCategoriesComboBox.TabIndex = 19;
             this.searchCategoriesComboBox.SelectedIndexChanged += new System.EventHandler(this.searchCategoriesComboBox_SelectedIndexChanged);
             // 
-            // itemsListBox
-            // 
-            this.itemsListBox.FormattingEnabled = true;
-            this.itemsListBox.Location = new System.Drawing.Point(11, 161);
-            this.itemsListBox.Name = "itemsListBox";
-            this.itemsListBox.Size = new System.Drawing.Size(392, 95);
-            this.itemsListBox.TabIndex = 20;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(9, 145);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 13);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "FurnitureId";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(164, 145);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(60, 13);
-            this.label12.TabIndex = 23;
-            this.label12.Text = "Description";
-            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -311,34 +278,35 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.memberResultGrid);
+            this.tabPage1.Controls.Add(this.queryResultGrid);
             this.tabPage1.Controls.Add(this.memberSinceResult);
             this.tabPage1.Controls.Add(this.resultLabelMemberSince);
-            this.tabPage1.Controls.Add(this.memberAddressResult);
-            this.tabPage1.Controls.Add(this.resultLabelAddress);
-            this.tabPage1.Controls.Add(this.memberNameResult);
-            this.tabPage1.Controls.Add(this.resultLabelName);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.resultLabelMember);
-            this.tabPage1.Controls.Add(this.memberIdResult);
-            this.tabPage1.Controls.Add(this.itemsListBox);
             this.tabPage1.Controls.Add(this.typeLabel);
             this.tabPage1.Controls.Add(this.memberSearchButton);
             this.tabPage1.Controls.Add(this.searchBy);
             this.tabPage1.Controls.Add(this.searchCategoriesComboBox);
             this.tabPage1.Controls.Add(this.memberPhoneSearch);
             this.tabPage1.Controls.Add(this.comboBox1);
-            this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.label12);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(714, 341);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Search";
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // queryResultGrid
+            // 
+            this.queryResultGrid.BackgroundColor = System.Drawing.Color.White;
+            this.queryResultGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.queryResultGrid.Location = new System.Drawing.Point(12, 140);
+            this.queryResultGrid.Name = "queryResultGrid";
+            this.queryResultGrid.ReadOnly = true;
+            this.queryResultGrid.Size = new System.Drawing.Size(391, 184);
+            this.queryResultGrid.TabIndex = 40;
             // 
             // memberSinceResult
             // 
@@ -361,44 +329,6 @@
             this.resultLabelMemberSince.Text = "Member Since";
             this.resultLabelMemberSince.Visible = false;
             // 
-            // memberAddressResult
-            // 
-            this.memberAddressResult.Location = new System.Drawing.Point(438, 252);
-            this.memberAddressResult.Name = "memberAddressResult";
-            this.memberAddressResult.Size = new System.Drawing.Size(220, 20);
-            this.memberAddressResult.TabIndex = 37;
-            this.memberAddressResult.Visible = false;
-            this.memberAddressResult.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
-            // 
-            // resultLabelAddress
-            // 
-            this.resultLabelAddress.AutoSize = true;
-            this.resultLabelAddress.Location = new System.Drawing.Point(435, 236);
-            this.resultLabelAddress.Name = "resultLabelAddress";
-            this.resultLabelAddress.Size = new System.Drawing.Size(45, 13);
-            this.resultLabelAddress.TabIndex = 36;
-            this.resultLabelAddress.Text = "Address";
-            this.resultLabelAddress.Visible = false;
-            this.resultLabelAddress.Click += new System.EventHandler(this.label14_Click);
-            // 
-            // memberNameResult
-            // 
-            this.memberNameResult.Location = new System.Drawing.Point(521, 204);
-            this.memberNameResult.Name = "memberNameResult";
-            this.memberNameResult.Size = new System.Drawing.Size(137, 20);
-            this.memberNameResult.TabIndex = 35;
-            this.memberNameResult.Visible = false;
-            // 
-            // resultLabelName
-            // 
-            this.resultLabelName.AutoSize = true;
-            this.resultLabelName.Location = new System.Drawing.Point(521, 188);
-            this.resultLabelName.Name = "resultLabelName";
-            this.resultLabelName.Size = new System.Drawing.Size(35, 13);
-            this.resultLabelName.TabIndex = 34;
-            this.resultLabelName.Text = "Name";
-            this.resultLabelName.Visible = false;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -418,24 +348,6 @@
             this.label10.Size = new System.Drawing.Size(216, 31);
             this.label10.TabIndex = 32;
             this.label10.Text = "Furniture Search";
-            // 
-            // resultLabelMember
-            // 
-            this.resultLabelMember.AutoSize = true;
-            this.resultLabelMember.Location = new System.Drawing.Point(435, 188);
-            this.resultLabelMember.Name = "resultLabelMember";
-            this.resultLabelMember.Size = new System.Drawing.Size(59, 13);
-            this.resultLabelMember.TabIndex = 31;
-            this.resultLabelMember.Text = "Member ID";
-            this.resultLabelMember.Visible = false;
-            // 
-            // memberIdResult
-            // 
-            this.memberIdResult.Location = new System.Drawing.Point(438, 204);
-            this.memberIdResult.Name = "memberIdResult";
-            this.memberIdResult.Size = new System.Drawing.Size(56, 20);
-            this.memberIdResult.TabIndex = 30;
-            this.memberIdResult.Visible = false;
             // 
             // memberSearchButton
             // 
@@ -511,15 +423,6 @@
             this.sqlButton.Visible = false;
             this.sqlButton.Click += new System.EventHandler(this.sqlButton_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 262);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(391, 62);
-            this.dataGridView1.TabIndex = 40;
-            // 
             // welcomeLabel
             // 
             this.welcomeLabel.AutoSize = true;
@@ -529,6 +432,15 @@
             this.welcomeLabel.Size = new System.Drawing.Size(127, 29);
             this.welcomeLabel.TabIndex = 29;
             this.welcomeLabel.Text = "Welcome: ";
+            // 
+            // memberResultGrid
+            // 
+            this.memberResultGrid.BackgroundColor = System.Drawing.Color.White;
+            this.memberResultGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.memberResultGrid.Location = new System.Drawing.Point(430, 168);
+            this.memberResultGrid.Name = "memberResultGrid";
+            this.memberResultGrid.Size = new System.Drawing.Size(276, 116);
+            this.memberResultGrid.TabIndex = 41;
             // 
             // SaleForm
             // 
@@ -546,9 +458,10 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.queryResultGrid)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.memberResultGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -574,9 +487,6 @@
         private System.Windows.Forms.Button createNewMemButton;
         private System.Windows.Forms.Button logOutButton;
         private System.Windows.Forms.ComboBox searchCategoriesComboBox;
-        private System.Windows.Forms.ListBox itemsListBox;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label searchBy;
         private System.Windows.Forms.Label typeLabel;
@@ -587,19 +497,14 @@
         private System.Windows.Forms.TextBox memberPhoneSearch;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer2;
         private System.Windows.Forms.Button memberSearchButton;
-        private System.Windows.Forms.TextBox memberIdResult;
-        private System.Windows.Forms.Label resultLabelMember;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label resultLabelName;
-        private System.Windows.Forms.TextBox memberAddressResult;
-        private System.Windows.Forms.Label resultLabelAddress;
-        private System.Windows.Forms.TextBox memberNameResult;
         private System.Windows.Forms.Label memberSinceResult;
         private System.Windows.Forms.Label resultLabelMemberSince;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView queryResultGrid;
         private System.Windows.Forms.Button sqlButton;
         private System.Windows.Forms.Label welcomeLabel;
+        private System.Windows.Forms.DataGridView memberResultGrid;
     }
 }
 
