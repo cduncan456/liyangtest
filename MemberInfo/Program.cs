@@ -15,9 +15,9 @@ static class Program
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
         // Application.Run(new SaleForm());
-        Application.Run(new LogInForm());
+        //Application.Run(new LogInForm());
         //Application.Run(new NewMemberForm());
-        //Application.Run(new SaleForm());
+        Application.Run(new SaleForm(1,"Matt Ryan"));
     }
 }
 
