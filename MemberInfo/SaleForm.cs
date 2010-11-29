@@ -13,8 +13,10 @@ namespace MemberInfo
     public partial class SaleForm : Form
     {
         private int isAdmin;
+        private DataTable currentTable;
         public SaleForm(int isAnAdmin, string userName)
         {
+            currentTable = new DataTable();
             isAdmin = isAnAdmin;
             InitializeComponent();
             if (isAdmin == 1)
@@ -94,6 +96,22 @@ namespace MemberInfo
 
         private void memberSearchButton_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void sqlButton_Click(object sender, EventArgs e)
+        {
+            adminQueryInterface inst = new adminQueryInterface();
+            inst.Show();
+        }
+
+        private void searchCategoriesComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            connectToDb();
+        }
+
+        private void memberSearchButton_Click_1(object sender, EventArgs e)
+        {
             try
             {
                 string MyConString = "DRIVER={MySQL ODBC 5.1 Driver};" +
@@ -116,22 +134,99 @@ namespace MemberInfo
                 //Close all resources
                 MyConnection.Close();
 
-                
-           }
+
+            }
             catch (Exception ex)
             {
             }
         }
 
-        private void sqlButton_Click(object sender, EventArgs e)
+        private void queryResultGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            adminQueryInterface inst = new adminQueryInterface();
-            inst.Show();
+            MessageBox.Show("HEY");
+            try
+            {
+                string MyConString = "DRIVER={MySQL ODBC 5.1 Driver};" +
+                         "SERVER=turing.cs.westga.edu;" +
+                         "PORT=3306;" +
+                         "DATABASE=vwilson1;" +
+                         "UID=vwilson1;" +
+                         "PASSWORD=vw881376";
+
+                OdbcConnection MyConnection = new OdbcConnection(MyConString);
+                MyConnection.Open();
+                String searchType = searchCategoriesComboBox.Text.ToString();
+                string sqlStatement = "SELECT furniture_Id, Description FROM furniture WHERE " + queryResultGrid.CurrentCell.Value + " = furniture_Id";
+                OdbcDataAdapter a = new OdbcDataAdapter(
+                    sqlStatement, MyConnection);
+                
+                DataTable t = new DataTable();
+                a.Fill(t);
+                for (int currentRow = 0; currentRow < currentTable.Rows.Count; currentRow++)
+                {
+                    t.ImportRow(currentTable.Rows[currentRow]);
+                }
+                currentTable = t;
+                rentalDataGrid.DataSource = t;
+
+                //Close all resources
+                MyConnection.Close();
+
+
+            }
+            catch (OdbcException o)
+            {
+                MessageBox.Show(o.ToString());
+            }
         }
 
-        private void searchCategoriesComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void memberResultGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            connectToDb();
+            MessageBox.Show("HEY");
+            try
+            {
+                string MyConString = "DRIVER={MySQL ODBC 5.1 Driver};" +
+                         "SERVER=turing.cs.westga.edu;" +
+                         "PORT=3306;" +
+                         "DATABASE=vwilson1;" +
+                         "UID=vwilson1;" +
+                         "PASSWORD=vw881376";
+
+                OdbcConnection MyConnection = new OdbcConnection(MyConString);
+                MyConnection.Open();
+                String searchType = searchCategoriesComboBox.Text.ToString();
+                string sqlStatement = "SELECT member_Id, fname, lname FROM member WHERE " + memberResultGrid.CurrentCell.Value + " = member_Id";
+                OdbcDataAdapter a = new OdbcDataAdapter(
+                    sqlStatement, MyConnection);
+
+                DataTable t = new DataTable();
+                a.Fill(t);
+                if (currentTable.Rows.Count < 1)
+                {
+                    //MessageBox.Show(t.Rows[0].ItemArray[2].ToString());
+                    rentalDataGrid.DataSource = t;
+                }
+                else
+                {
+                    for (int i = 0; i < currentTable.Rows.Count; i++)
+                    {
+                        //currentTable.Columns.Add("fname");
+                        currentTable.Rows[i].ItemArray[0] = t.Rows[i].ItemArray[2].ToString();
+                        MessageBox.Show(currentTable.Rows[i].ItemArray[0].ToString());
+                    }
+                }
+                //currentTable = t;
+                rentalDataGrid.DataSource = t;
+
+                //Close all resources
+                MyConnection.Close();
+
+
+            }
+            catch (OdbcException o)
+            {
+                MessageBox.Show(o.ToString());
+            }
         }
     }
 }

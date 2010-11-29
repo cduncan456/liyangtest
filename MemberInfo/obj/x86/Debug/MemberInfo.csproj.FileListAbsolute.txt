@@ -66,3 +66,15 @@ U:\11_27_10_yang\MemberInfo\obj\x86\Debug\MemberInfo.SaleForm.resources
 U:\11_27_10_yang\MemberInfo\obj\x86\Debug\MemberInfo.Properties.Resources.resources
 U:\11_27_10_yang\MemberInfo\obj\x86\Debug\GenerateResource.read.1.tlog
 U:\11_27_10_yang\MemberInfo\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\vwilson1\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\MemberInfo.exe
+C:\Users\vwilson1\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\MemberInfo.pdb
+C:\Users\vwilson1\Desktop\ liyangtest\MemberInfo\bin\Debug\MemberInfo.exe
+C:\Users\vwilson1\Desktop\ liyangtest\MemberInfo\bin\Debug\MemberInfo.pdb
+C:\Users\vwilson1\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\vwilson1\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\MemberInfo.adminQueryInterface.resources
+C:\Users\vwilson1\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\MemberInfo.LogInForm.resources
+C:\Users\vwilson1\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\MemberInfo.NewMemberForm.resources
+C:\Users\vwilson1\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\MemberInfo.SaleForm.resources
+C:\Users\vwilson1\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\MemberInfo.Properties.Resources.resources
+C:\Users\vwilson1\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\vwilson1\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\GenerateResource.write.1.tlog
