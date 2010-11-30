@@ -65,8 +65,8 @@
             this.memberIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.due_dateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.start_dateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.label3 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.queryResultGrid)).BeginInit();
@@ -379,8 +379,8 @@
             // Return
             // 
             this.Return.BackColor = System.Drawing.SystemColors.Control;
+            this.Return.Controls.Add(this.dateTimePicker1);
             this.Return.Controls.Add(this.label3);
-            this.Return.Controls.Add(this.monthCalendar1);
             this.Return.Controls.Add(this.returnQueryResultDataGrid);
             this.Return.Location = new System.Drawing.Point(4, 22);
             this.Return.Name = "Return";
@@ -458,21 +458,24 @@
             this.start_dateColumn.HeaderText = "Check Out Date";
             this.start_dateColumn.Name = "start_dateColumn";
             // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(430, 109);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 1;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(399, 27);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(400, 47);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(274, 31);
+            this.label3.Size = new System.Drawing.Size(292, 33);
             this.label3.TabIndex = 2;
             this.label3.Text = "Select Date to Return";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(432, 114);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 3;
             // 
             // SaleForm
             // 
@@ -547,7 +550,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn due_dateColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn start_dateColumn;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 

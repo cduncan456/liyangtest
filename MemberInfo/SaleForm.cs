@@ -275,15 +275,13 @@ namespace MemberInfo
         private void returnQueryResultDataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView currentDataGrid = (DataGridView)sender;
-            MessageBox.Show(currentDataGrid.CurrentCell.Value.ToString());
+            
+            String date_Returned = dateTimePicker1.Text.ToString();
            
             if (currentDataGrid.CurrentCell.ColumnIndex == 0)
             {
                 int furniture_Id = int.Parse(currentDataGrid.CurrentCell.Value.ToString());
                 int rental_Number = int.Parse(currentDataGrid.Rows[currentDataGrid.CurrentCell.RowIndex].Cells[currentDataGrid.CurrentCell.ColumnIndex + 1].Value.ToString());
-                //String in_Employee_Id = currentDataGrid.Rows[currentDataGrid.CurrentCell.RowIndex].Cells[currentDataGrid.CurrentCell.ColumnIndex + 2].Value.ToString();
-                //String date_Rentured = currentDataGrid.Rows[currentDataGrid.CurrentCell.RowIndex].Cells[currentDataGrid.CurrentCell.ColumnIndex + 3].Value.ToString();
-                //DateTime D1 = new DateTime(
             try
             {
                 string MyConString = "DRIVER={MySQL ODBC 5.1 Driver};" +
@@ -295,9 +293,16 @@ namespace MemberInfo
 
                 OdbcConnection MyConnection = new OdbcConnection(MyConString);
                 MyConnection.Open();
-                string sqlStatement = "Update `in`set in_Employee_Id = '" + employeeId + "', date_returned = '" + date_Rentured + "' where `furniture_Id` = " + furniture_Id + " and `rental_Number` = " + rental_Number;
+                string sqlStatement = "Update `in`set in_Employee_Id = '" + employeeId + "', date_returned = '" + date_Returned + "' where `furniture_Id` = " + furniture_Id + " and `rental_Number` = " + rental_Number;
                 OdbcCommand updateCommand = new OdbcCommand(sqlStatement, MyConnection);
                 updateCommand.ExecuteNonQuery();
+
+                OdbcDataAdapter ap2 = new OdbcDataAdapter("select furniture_Id, rental_Number from `in` where  in_Employee_Id = '0' and date_returned = '00000000' order by rental_Number asc", MyConnection);
+                DataTable table2 = new DataTable();
+                ap2.Fill(table2);
+                returnQueryResultDataGrid.DataSource = table2;
+                MessageBox.Show("Furniture Item Number "+ furniture_Id +" and Rental Number " + rental_Number +" has been checked in." ,"Updated", MessageBoxButtons.OK , MessageBoxIcon.Information); 
+
 
                 //Close all resources
                 MyConnection.Close();
@@ -317,6 +322,11 @@ namespace MemberInfo
         }
 
         private void returnQueryResultDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
 
         }
