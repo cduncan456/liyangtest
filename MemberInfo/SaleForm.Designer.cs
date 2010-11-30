@@ -65,6 +65,8 @@
             this.memberIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.due_dateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.start_dateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.label3 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.queryResultGrid)).BeginInit();
@@ -376,6 +378,9 @@
             // 
             // Return
             // 
+            this.Return.BackColor = System.Drawing.SystemColors.Control;
+            this.Return.Controls.Add(this.label3);
+            this.Return.Controls.Add(this.monthCalendar1);
             this.Return.Controls.Add(this.returnQueryResultDataGrid);
             this.Return.Location = new System.Drawing.Point(4, 22);
             this.Return.Name = "Return";
@@ -383,7 +388,6 @@
             this.Return.Size = new System.Drawing.Size(714, 341);
             this.Return.TabIndex = 3;
             this.Return.Text = "Return";
-            this.Return.UseVisualStyleBackColor = true;
             // 
             // returnQueryResultDataGrid
             // 
@@ -391,8 +395,9 @@
             this.returnQueryResultDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.returnQueryResultDataGrid.Location = new System.Drawing.Point(10, 37);
             this.returnQueryResultDataGrid.Name = "returnQueryResultDataGrid";
-            this.returnQueryResultDataGrid.Size = new System.Drawing.Size(696, 298);
+            this.returnQueryResultDataGrid.Size = new System.Drawing.Size(347, 298);
             this.returnQueryResultDataGrid.TabIndex = 0;
+            this.returnQueryResultDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.returnQueryResultDataGrid_CellContentClick);
             this.returnQueryResultDataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.returnQueryResultDataGrid_CellDoubleClick);
             // 
             // sqlButton
@@ -453,6 +458,22 @@
             this.start_dateColumn.HeaderText = "Check Out Date";
             this.start_dateColumn.Name = "start_dateColumn";
             // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(430, 109);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(399, 27);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(274, 31);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Select Date to Return";
+            // 
             // SaleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -479,6 +500,7 @@
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memberResultGrid)).EndInit();
             this.Return.ResumeLayout(false);
+            this.Return.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.returnQueryResultDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -524,6 +546,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn memberIdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn due_dateColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn start_dateColumn;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }
 

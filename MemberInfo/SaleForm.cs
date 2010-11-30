@@ -60,7 +60,7 @@ namespace MemberInfo
                 rentalDataGrid.Rows[0].Cells[0].Value = currentRentalNum;
                 rentalDataGrid.Rows[0].Cells[1].Value = employeeId;
 
-                OdbcDataAdapter ap2 = new OdbcDataAdapter("select * from `in` where  in_Employee_Id = '0' and date_returned = '00000000' order by rental_Number asc", MyConnection);
+                OdbcDataAdapter ap2 = new OdbcDataAdapter("select furniture_Id, rental_Number from `in` where  in_Employee_Id = '0' and date_returned = '00000000' order by rental_Number asc", MyConnection);
                 DataTable table2 = new DataTable();
                 ap2.Fill(table2);
                 returnQueryResultDataGrid.DataSource = table2;
@@ -281,8 +281,9 @@ namespace MemberInfo
             {
                 int furniture_Id = int.Parse(currentDataGrid.CurrentCell.Value.ToString());
                 int rental_Number = int.Parse(currentDataGrid.Rows[currentDataGrid.CurrentCell.RowIndex].Cells[currentDataGrid.CurrentCell.ColumnIndex + 1].Value.ToString());
-                String in_Employee_Id = currentDataGrid.Rows[currentDataGrid.CurrentCell.RowIndex].Cells[currentDataGrid.CurrentCell.ColumnIndex + 2].Value.ToString();
-                String date_Rentured = currentDataGrid.Rows[currentDataGrid.CurrentCell.RowIndex].Cells[currentDataGrid.CurrentCell.ColumnIndex + 3].Value.ToString();
+                //String in_Employee_Id = currentDataGrid.Rows[currentDataGrid.CurrentCell.RowIndex].Cells[currentDataGrid.CurrentCell.ColumnIndex + 2].Value.ToString();
+                //String date_Rentured = currentDataGrid.Rows[currentDataGrid.CurrentCell.RowIndex].Cells[currentDataGrid.CurrentCell.ColumnIndex + 3].Value.ToString();
+                //DateTime D1 = new DateTime(
             try
             {
                 string MyConString = "DRIVER={MySQL ODBC 5.1 Driver};" +
@@ -294,7 +295,7 @@ namespace MemberInfo
 
                 OdbcConnection MyConnection = new OdbcConnection(MyConString);
                 MyConnection.Open();
-                string sqlStatement = "Update `in`set in_Employee_Id = '" + in_Employee_Id + "', date_returned = '" + date_Rentured + "' where `furniture_Id` = " + furniture_Id + " and `rental_Number` = " + rental_Number;
+                string sqlStatement = "Update `in`set in_Employee_Id = '" + employeeId + "', date_returned = '" + date_Rentured + "' where `furniture_Id` = " + furniture_Id + " and `rental_Number` = " + rental_Number;
                 OdbcCommand updateCommand = new OdbcCommand(sqlStatement, MyConnection);
                 updateCommand.ExecuteNonQuery();
 
@@ -311,6 +312,11 @@ namespace MemberInfo
         }
 
         private void rentalDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void returnQueryResultDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
