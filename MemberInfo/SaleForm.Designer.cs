@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.completeSaleButton = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.totalDueLabel = new System.Windows.Forms.Label();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.createNewMemButton = new System.Windows.Forms.Button();
             this.logOutButton = new System.Windows.Forms.Button();
@@ -91,32 +89,14 @@
             this.completeSaleButton.UseVisualStyleBackColor = true;
             this.completeSaleButton.Click += new System.EventHandler(this.completeSaleButton_Click);
             // 
-            // label7
+            // totalDueLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(303, 267);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 13);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Subtotal";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(324, 284);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(25, 13);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Tax";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(318, 313);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(31, 13);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Total";
+            this.totalDueLabel.AutoSize = true;
+            this.totalDueLabel.Location = new System.Drawing.Point(307, 276);
+            this.totalDueLabel.Name = "totalDueLabel";
+            this.totalDueLabel.Size = new System.Drawing.Size(31, 13);
+            this.totalDueLabel.TabIndex = 15;
+            this.totalDueLabel.Text = "Total";
             // 
             // lineShape1
             // 
@@ -251,9 +231,7 @@
             this.tabPage2.Controls.Add(this.furnitureItemsDataGrid);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.rentalDataGrid);
-            this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.totalDueLabel);
             this.tabPage2.Controls.Add(this.completeSaleButton);
             this.tabPage2.Controls.Add(this.shapeContainer2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -534,9 +512,7 @@
         #endregion
 
         private System.Windows.Forms.Button completeSaleButton;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label totalDueLabel;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
         private System.Windows.Forms.Button createNewMemButton;
         private System.Windows.Forms.Button logOutButton;
