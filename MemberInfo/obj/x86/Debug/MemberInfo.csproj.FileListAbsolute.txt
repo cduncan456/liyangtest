@@ -78,3 +78,15 @@ C:\Users\vwilson1\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\MemberInfo.SaleFo
 C:\Users\vwilson1\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\MemberInfo.Properties.Resources.resources
 C:\Users\vwilson1\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\vwilson1\Desktop\ liyangtest\MemberInfo\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\smalik2\Desktop\hg\MemberInfo\obj\x86\Debug\MemberInfo.exe
+C:\Users\smalik2\Desktop\hg\MemberInfo\obj\x86\Debug\MemberInfo.pdb
+C:\Users\smalik2\Desktop\hg\MemberInfo\bin\Debug\MemberInfo.exe
+C:\Users\smalik2\Desktop\hg\MemberInfo\bin\Debug\MemberInfo.pdb
+C:\Users\smalik2\Desktop\hg\MemberInfo\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\smalik2\Desktop\hg\MemberInfo\obj\x86\Debug\MemberInfo.adminQueryInterface.resources
+C:\Users\smalik2\Desktop\hg\MemberInfo\obj\x86\Debug\MemberInfo.LogInForm.resources
+C:\Users\smalik2\Desktop\hg\MemberInfo\obj\x86\Debug\MemberInfo.NewMemberForm.resources
+C:\Users\smalik2\Desktop\hg\MemberInfo\obj\x86\Debug\MemberInfo.SaleForm.resources
+C:\Users\smalik2\Desktop\hg\MemberInfo\obj\x86\Debug\MemberInfo.Properties.Resources.resources
+C:\Users\smalik2\Desktop\hg\MemberInfo\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\smalik2\Desktop\hg\MemberInfo\obj\x86\Debug\GenerateResource.write.1.tlog

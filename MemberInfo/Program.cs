@@ -15,10 +15,10 @@ static class Program
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
         // Application.Run(new SaleForm());
-        //Application.Run(new LogInForm());
+        Application.Run(new LogInForm());
         //Application.Run(new NewMemberForm());
         //LogInForm inst = new LogInForm();
-        Application.Run(new SaleForm(1, "Matt Ryan", new LogInForm()));
+        //Application.Run(new SaleForm(1, "Matt Ryan", new LogInForm()));
     }
 }
 

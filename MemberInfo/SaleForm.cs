@@ -16,11 +16,13 @@ namespace MemberInfo
         private DataTable currentTable;
         private String searchByStr;
         private LogInForm theLoginForm;
-        public SaleForm(int isAnAdmin, string userName, LogInForm theLoginForm)
+        private int employeeId;
+        public SaleForm(int isAnAdmin, string userName, int employeeId, LogInForm theLoginForm)
         {
 
             currentTable = new DataTable();
             isAdmin = isAnAdmin;
+            this.employeeId = employeeId;
             this.theLoginForm = theLoginForm;
             InitializeComponent();
             if (isAdmin == 1)
@@ -56,6 +58,7 @@ namespace MemberInfo
                 } 
                 currentRentalNum++;
                 rentalDataGrid.Rows[0].Cells[0].Value = currentRentalNum;
+                rentalDataGrid.Rows[0].Cells[1].Value = employeeId;
 
                 OdbcDataAdapter ap2 = new OdbcDataAdapter("select * from `in` where  in_Employee_Id = '0' and date_returned = '00000000' order by rental_Number asc", MyConnection);
                 DataTable table2 = new DataTable();
@@ -305,6 +308,11 @@ namespace MemberInfo
                 MessageBox.Show(o.ToString());
             }
             }
+        }
+
+        private void rentalDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
       
     }

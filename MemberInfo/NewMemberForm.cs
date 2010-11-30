@@ -40,7 +40,7 @@ namespace MemberInfo
                 OdbcConnection MyConnection = new OdbcConnection(MyConString);
 
                 MyConnection.Open();
-                MessageBox.Show("!!! success, connected successfully !!!");
+                //MessageBox.Show("!!! success, connected successfully !!!");
 
                 OdbcCommand getHighestMemberId = new OdbcCommand("SELECT MAX(member_Id) as Highest_Number from MEMBER", MyConnection);
                 OdbcCommand getAllSsn = new OdbcCommand("Select ssn from Member", MyConnection);
@@ -152,12 +152,13 @@ namespace MemberInfo
 
             firstName = Convert.ToString(firstNameTextBox.Text);
             lastName = lastNameTextBox.Text;
-            memberIdTextBox.Text = Convert.ToString(memberId);
+
             date = dateTextBox.Text;
             String memberInfo = ssn + ", " + "'" + phoneNumber + "'" + ", " + "'" + firstName + "'" + ", " + "'" + lastName + "'" + ", " + address + " " + city + " " + state + " " + zipCode + "', " + "'" + date + "'";
             connection(memberInfo);
             if (validated == true)
             {
+                memberIdTextBox.Text = "" + getMemberIdNumber();
                 MessageBox.Show(firstName + " " + lastName + " has been added as a member. MemberId: " + getMemberIdNumber());
             }
             else

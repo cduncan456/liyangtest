@@ -148,7 +148,7 @@ namespace MemberInfo
             if (employeeNumberLoggedin == Convert.ToInt32(employeeIdBox.Text.ToString()) && passwordBox.Text == employeePasswordLoggedin)
             {
                 LogInForm.ActiveForm.Visible = false;
-                SaleForm sale1 = new SaleForm(adminBoolean, employeeName, this);
+                SaleForm sale1 = new SaleForm(adminBoolean, employeeName, int.Parse(employeeIdBox.Text.ToString()), this);
                 sale1.Activate();
                 sale1.Show();
             }
