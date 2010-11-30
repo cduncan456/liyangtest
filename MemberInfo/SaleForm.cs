@@ -17,6 +17,8 @@ namespace MemberInfo
         private String searchByStr;
         private LogInForm theLoginForm;
         private int employeeId;
+        private int member_Id;
+        private OdbcDataAdapter memberDataAdapter;
         public SaleForm(int isAnAdmin, string userName, int employeeId, LogInForm theLoginForm)
         {
 
@@ -24,6 +26,7 @@ namespace MemberInfo
             isAdmin = isAnAdmin;
             this.employeeId = employeeId;
             this.theLoginForm = theLoginForm;
+            member_Id = 0;
             InitializeComponent();
             if (isAdmin == 1)
             {
@@ -51,19 +54,14 @@ namespace MemberInfo
                 DataTable table = new DataTable();
                 ap.Fill(table);
                 queryResultGrid.DataSource = table;
-                int currentRentalNum = 0;            
+                int currentRentalNum = 0;
                 while (getTypeReader.Read())
                 {
                     currentRentalNum = int.Parse(getTypeReader.GetString(0));
-                } 
+                }
                 currentRentalNum++;
                 rentalDataGrid.Rows[0].Cells[0].Value = currentRentalNum;
                 rentalDataGrid.Rows[0].Cells[1].Value = employeeId;
-
-                OdbcDataAdapter ap2 = new OdbcDataAdapter("select furniture_Id, rental_Number from `in` where  in_Employee_Id = '0' and date_returned = '00000000' order by rental_Number asc", MyConnection);
-                DataTable table2 = new DataTable();
-                ap2.Fill(table2);
-                returnQueryResultDataGrid.DataSource = table2;
 
                 MyConnection.Close();
             }
@@ -87,14 +85,15 @@ namespace MemberInfo
                 OdbcConnection MyConnection = new OdbcConnection(MyConString);
 
                 MyConnection.Open();
-                searchByStr = comboBox1.Text.ToString();                
+                searchByStr = comboBox1.Text.ToString();
 
                 OdbcCommand getType = new OdbcCommand("SELECT `" + searchByStr + "` FROM FURNITURE", MyConnection);
                 OdbcDataReader getTypeReader = getType.ExecuteReader();
                 while (getTypeReader.Read())
                 {
-                    if(!searchCategoriesComboBox.Items.Contains(getTypeReader.GetString(0))){
-                         searchCategoriesComboBox.Items.Add(getTypeReader.GetString(0));
+                    if (!searchCategoriesComboBox.Items.Contains(getTypeReader.GetString(0)))
+                    {
+                        searchCategoriesComboBox.Items.Add(getTypeReader.GetString(0));
                     }
                 }
                 getTypeReader.Close();
@@ -102,14 +101,14 @@ namespace MemberInfo
             }
             catch (Exception e)
             {
-                
+
             }
         }
 
         private void createNewMemButton_Click(object sender, EventArgs e)
         {
-           NewMemberForm theMemberForm = new NewMemberForm();
-           theMemberForm.Show();
+            NewMemberForm theMemberForm = new NewMemberForm();
+            theMemberForm.Show();
         }
 
         private void logOutButton_Click(object sender, EventArgs e)
@@ -147,7 +146,7 @@ namespace MemberInfo
 
                 OdbcCommand insertRentalCommand = new OdbcCommand("INSERT INTO Rental (rental_Number, out_Employee_Id, member_Id, due_Date, start_Date) " + "VALUES (" + rentalDataGrid.Rows[0].Cells[0].Value + ", " + rentalDataGrid.Rows[0].Cells[1].Value + ", '" + rentalDataGrid.Rows[0].Cells[2].Value + "', '" + rentalDataGrid.Rows[0].Cells[3].Value + "', '" + rentalDataGrid.Rows[0].Cells[4].Value + "')", MyConnection);
                 insertRentalCommand.ExecuteNonQuery();
-                for (int i = 0; i < furnitureItemsDataGrid.Rows.Count -1; i++)
+                for (int i = 0; i < furnitureItemsDataGrid.Rows.Count - 1; i++)
                 {
                     OdbcCommand insertFurnitureCommand = new OdbcCommand("INSERT INTO `In` (furniture_Id, rental_Number, in_Employee_Id, date_returned) " + "VALUES (" + furnitureItemsDataGrid.Rows[i].Cells[0].Value.ToString() + ", " + rentalDataGrid.Rows[0].Cells[0].Value + ", 'Null', 'Null')", MyConnection);
                     insertFurnitureCommand.ExecuteNonQuery();
@@ -251,7 +250,7 @@ namespace MemberInfo
                 string sqlStatement = "SELECT furniture_Id, Description, color, style FROM furniture WHERE " + queryResultGrid.CurrentCell.Value + " = furniture_Id";
                 OdbcDataAdapter a = new OdbcDataAdapter(
                     sqlStatement, MyConnection);
-                
+
                 DataTable t = new DataTable();
                 a.Fill(t);
                 for (int currentRow = 0; currentRow < currentTable.Rows.Count; currentRow++)
@@ -263,7 +262,7 @@ namespace MemberInfo
 
                 //Close all resources
                 MyConnection.Close();
-           
+
 
             }
             catch (OdbcException o)
@@ -275,51 +274,74 @@ namespace MemberInfo
         private void returnQueryResultDataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView currentDataGrid = (DataGridView)sender;
-                     
+
             String date_Returned = dateTimePicker1.Text.ToString();
-            DateTime d1 = new DateTime(int.Parse(date_Returned.Substring(0, 4)), int.Parse(date_Returned.Substring(5, 2)), int.Parse(date_Returned.Substring(8, 2)));
 
-            MessageBox.Show(d1.ToString());
-
-           // DateTime d2 = new DateTime();
-           // TimeSpan ts1 = new TimeSpan()
-           // d2.Add(dateTimePicker1.Text);
-           
             if (currentDataGrid.CurrentCell.ColumnIndex == 0)
             {
-                int furniture_Id = int.Parse(currentDataGrid.CurrentCell.Value.ToString());
-                int rental_Number = int.Parse(currentDataGrid.Rows[currentDataGrid.CurrentCell.RowIndex].Cells[currentDataGrid.CurrentCell.ColumnIndex + 1].Value.ToString());
-            try
-            {
-                string MyConString = "DRIVER={MySQL ODBC 5.1 Driver};" +
-                         "SERVER=turing.cs.westga.edu;" +
-                         "PORT=3306;" +
-                         "DATABASE=vwilson1;" +
-                         "UID=vwilson1;" +
-                         "PASSWORD=vw881376";
+                int rental_Number = int.Parse(currentDataGrid.CurrentCell.Value.ToString());
+                int furniture_Id = int.Parse(currentDataGrid.Rows[currentDataGrid.CurrentCell.RowIndex].Cells[currentDataGrid.CurrentCell.ColumnIndex + 1].Value.ToString());
+                try
+                {
+                    string MyConString = "DRIVER={MySQL ODBC 5.1 Driver};" +
+                             "SERVER=turing.cs.westga.edu;" +
+                             "PORT=3306;" +
+                             "DATABASE=vwilson1;" +
+                             "UID=vwilson1;" +
+                             "PASSWORD=vw881376";
 
-                OdbcConnection MyConnection = new OdbcConnection(MyConString);
-                MyConnection.Open();
-                string sqlStatement = "Update `in`set in_Employee_Id = '" + employeeId + "', date_returned = '" + date_Returned + "' where `furniture_Id` = " + furniture_Id + " and `rental_Number` = " + rental_Number;
-                OdbcCommand updateCommand = new OdbcCommand(sqlStatement, MyConnection);
-                updateCommand.ExecuteNonQuery();
+                    OdbcConnection MyConnection = new OdbcConnection(MyConString);
+                    MyConnection.Open();
 
-                OdbcDataAdapter ap2 = new OdbcDataAdapter("select furniture_Id, rental_Number from `in` where  in_Employee_Id = '0' and date_returned = '00000000' order by rental_Number asc", MyConnection);
-                DataTable table2 = new DataTable();
-                ap2.Fill(table2);
-                returnQueryResultDataGrid.DataSource = table2;
-                MessageBox.Show("Furniture Item Number "+ furniture_Id +" and Rental Number " + rental_Number +" has been checked in." ,"Updated", MessageBoxButtons.OK , MessageBoxIcon.Information); 
+                    string sqlStatement = "Update `in`set in_Employee_Id = '" + employeeId + "', date_returned = '" + date_Returned + "' where `furniture_Id` = " + furniture_Id + " and `rental_Number` = " + rental_Number;
+                    OdbcCommand updateCommand = new OdbcCommand(sqlStatement, MyConnection);
+                    updateCommand.ExecuteNonQuery();
+                    MessageBox.Show("Furniture Item Number " + furniture_Id + " and Rental Number " + rental_Number + " has been checked in.", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    DataTable table2 = new DataTable();
+                    memberDataAdapter.Fill(table2);
+                    returnQueryResultDataGrid.DataSource = table2;
+                    
+
+                    OdbcCommand getFine = new OdbcCommand("SELECT fine_Rate from furniture where furniture_Id = " + furniture_Id, MyConnection);
+                    OdbcDataReader getFineReader = getFine.ExecuteReader();
+                    double fineRate = 0;
+                    while (getFineReader.Read())
+                    {
+                        fineRate = double.Parse(getFineReader.GetString(0));
+                    }
+
+                    OdbcCommand getDueDate = new OdbcCommand("SELECT due_Date from rental where rental_Number = " + rental_Number, MyConnection);
+                    OdbcDataReader getDueDateReader = getDueDate.ExecuteReader();
+                    String due_Date = "";
+                    while (getDueDateReader.Read())
+                    {
+                        due_Date = getDueDateReader.GetString(0);
+                    }
+
+                    DateTime d1 = new DateTime(int.Parse(date_Returned.Substring(0, 4)), int.Parse(date_Returned.Substring(5, 2)), int.Parse(date_Returned.Substring(8, 2)));
+                    MessageBox.Show(d1.ToString());
+                    DateTime d2 = new DateTime(int.Parse(due_Date.Substring(0, 4)), int.Parse(due_Date.Substring(5, 2)), int.Parse(due_Date.Substring(8, 2)));
+
+                    double dateDiff = (d1 - d2).TotalDays;
+                    double totalFines = 0;
+                    if (dateDiff > 0)
+                    {
+                        totalFines += dateDiff * fineRate;
+                    }
+
+                    getDueDateReader.Close();
+                    getFineReader.Close();
+
+                    //Close all resources
+                    MyConnection.Close();
 
 
-                //Close all resources
-                MyConnection.Close();
-
-
-            }
-            catch (OdbcException o)
-            {
-                MessageBox.Show(o.ToString());
-            }
+                }
+                catch (OdbcException o)
+                {
+                    MessageBox.Show(o.ToString());
+                }
             }
         }
 
@@ -337,6 +359,42 @@ namespace MemberInfo
         {
 
         }
-      
+
+        private void memberResultGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView currentDataGrid = (DataGridView)sender;
+            if (currentDataGrid.CurrentCell.ColumnIndex == 0)
+            {
+                member_Id = int.Parse(currentDataGrid.CurrentCell.Value.ToString());
+                try
+                {
+                    string MyConString = "DRIVER={MySQL ODBC 5.1 Driver};" +
+                             "SERVER=turing.cs.westga.edu;" +
+                             "PORT=3306;" +
+                             "DATABASE=vwilson1;" +
+                             "UID=vwilson1;" +
+                             "PASSWORD=vw881376";
+
+                    OdbcConnection MyConnection = new OdbcConnection(MyConString);
+                    MyConnection.Open();
+                    string sqlQuery = "select r.rental_Number, furniture_Id from rental r, `in` i where member_Id = " + member_Id + " and r.rental_Number = i.rental_Number and in_Employee_Id = 0 ";
+                    memberDataAdapter = new OdbcDataAdapter(
+                        sqlQuery, MyConnection);
+                    DataTable t = new DataTable();
+                    memberDataAdapter.Fill(t);
+                    returnQueryResultDataGrid.DataSource = t;
+
+                    //Close all resources
+                    MyConnection.Close();
+
+                    MessageBox.Show("Member " + member_Id + "has been logined in");
+                }
+                catch (OdbcException o)
+                {
+                    MessageBox.Show(o.ToString());
+                }
+            }
+        }
+
     }
 }

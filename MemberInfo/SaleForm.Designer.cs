@@ -48,6 +48,11 @@
             this.furnitureItemsDataGrid = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.rentalDataGrid = new System.Windows.Forms.DataGridView();
+            this.rental_numberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salesPersonColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.memberIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.due_dateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.start_dateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.memberResultGrid = new System.Windows.Forms.DataGridView();
@@ -56,17 +61,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.Return = new System.Windows.Forms.TabPage();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
             this.returnQueryResultDataGrid = new System.Windows.Forms.DataGridView();
             this.sqlButton = new System.Windows.Forms.Button();
             this.welcomeLabel = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.rental_numberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salesPersonColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.memberIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.due_dateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.start_dateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.queryResultGrid)).BeginInit();
@@ -304,6 +304,33 @@
             this.rentalDataGrid.TabIndex = 17;
             this.rentalDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rentalDataGrid_CellContentClick);
             // 
+            // rental_numberColumn
+            // 
+            this.rental_numberColumn.HeaderText = "Rental Number";
+            this.rental_numberColumn.Name = "rental_numberColumn";
+            this.rental_numberColumn.ReadOnly = true;
+            // 
+            // salesPersonColumn
+            // 
+            this.salesPersonColumn.HeaderText = "Rented By:";
+            this.salesPersonColumn.Name = "salesPersonColumn";
+            this.salesPersonColumn.ReadOnly = true;
+            // 
+            // memberIdColumn
+            // 
+            this.memberIdColumn.HeaderText = "Member Id";
+            this.memberIdColumn.Name = "memberIdColumn";
+            // 
+            // due_dateColumn
+            // 
+            this.due_dateColumn.HeaderText = "Due Date";
+            this.due_dateColumn.Name = "due_dateColumn";
+            // 
+            // start_dateColumn
+            // 
+            this.start_dateColumn.HeaderText = "Check Out Date";
+            this.start_dateColumn.Name = "start_dateColumn";
+            // 
             // shapeContainer2
             // 
             this.shapeContainer2.Location = new System.Drawing.Point(3, 3);
@@ -338,6 +365,7 @@
             this.memberResultGrid.Name = "memberResultGrid";
             this.memberResultGrid.Size = new System.Drawing.Size(697, 226);
             this.memberResultGrid.TabIndex = 42;
+            this.memberResultGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.memberResultGrid_CellContentDoubleClick);
             // 
             // memberSearchButton
             // 
@@ -389,6 +417,25 @@
             this.Return.TabIndex = 3;
             this.Return.Text = "Return";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(432, 114);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(400, 47);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(292, 33);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Select Date to Return";
+            // 
             // returnQueryResultDataGrid
             // 
             this.returnQueryResultDataGrid.BackgroundColor = System.Drawing.Color.White;
@@ -430,52 +477,6 @@
             this.label11.Size = new System.Drawing.Size(193, 55);
             this.label11.TabIndex = 30;
             this.label11.Text = "RentMe";
-            // 
-            // rental_numberColumn
-            // 
-            this.rental_numberColumn.HeaderText = "Rental Number";
-            this.rental_numberColumn.Name = "rental_numberColumn";
-            this.rental_numberColumn.ReadOnly = true;
-            // 
-            // salesPersonColumn
-            // 
-            this.salesPersonColumn.HeaderText = "Rented By:";
-            this.salesPersonColumn.Name = "salesPersonColumn";
-            this.salesPersonColumn.ReadOnly = true;
-            // 
-            // memberIdColumn
-            // 
-            this.memberIdColumn.HeaderText = "Member Id";
-            this.memberIdColumn.Name = "memberIdColumn";
-            // 
-            // due_dateColumn
-            // 
-            this.due_dateColumn.HeaderText = "Due Date";
-            this.due_dateColumn.Name = "due_dateColumn";
-            // 
-            // start_dateColumn
-            // 
-            this.start_dateColumn.HeaderText = "Check Out Date";
-            this.start_dateColumn.Name = "start_dateColumn";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(400, 47);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(292, 33);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Select Date to Return";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(432, 114);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 3;
             // 
             // SaleForm
             // 
