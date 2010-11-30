@@ -175,7 +175,6 @@ namespace MemberInfo
 
         private void searchCategoriesComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             try
             {
                 string MyConString = "DRIVER={MySQL ODBC 5.1 Driver};" +
@@ -221,6 +220,7 @@ namespace MemberInfo
                 DataTable t = new DataTable();
                 a.Fill(t);
                 memberResultGrid.DataSource = t;
+                memberResultGrid.ReadOnly = true;
 
                 //Close all resources
                 MyConnection.Close();
@@ -234,7 +234,6 @@ namespace MemberInfo
 
         private void queryResultGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show("HEY");
             try
             {
                 string MyConString = "DRIVER={MySQL ODBC 5.1 Driver};" +
@@ -255,11 +254,14 @@ namespace MemberInfo
                 a.Fill(t);
                 for (int currentRow = 0; currentRow < currentTable.Rows.Count; currentRow++)
                 {
-                    t.ImportRow(currentTable.Rows[currentRow]);
+                    if (currentTable.Rows[currentRow].ItemArray[0].ToString() != t.Rows[currentRow].ItemArray[0].ToString())
+                    {
+                        t.ImportRow(currentTable.Rows[currentRow]);
+                    }
                 }
                 currentTable = t;
                 furnitureItemsDataGrid.DataSource = t;
-
+                MessageBox.Show("Furniture item has been added to rental", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //Close all resources
                 MyConnection.Close();
 
@@ -277,7 +279,7 @@ namespace MemberInfo
 
             String date_Returned = dateTimePicker1.Text.ToString();
 
-            if (currentDataGrid.CurrentCell.ColumnIndex == 0)
+            if (currentDataGrid.CurrentCell.ColumnIndex == 0 && currentDataGrid.CurrentCell.Value.ToString().Length != 0)
             {
                 int rental_Number = int.Parse(currentDataGrid.CurrentCell.Value.ToString());
                 int furniture_Id = int.Parse(currentDataGrid.Rows[currentDataGrid.CurrentCell.RowIndex].Cells[currentDataGrid.CurrentCell.ColumnIndex + 1].Value.ToString());
@@ -300,7 +302,9 @@ namespace MemberInfo
 
                     DataTable table2 = new DataTable();
                     memberDataAdapter.Fill(table2);
+                    returnQueryResultDataGrid.ReadOnly = false;
                     returnQueryResultDataGrid.DataSource = table2;
+                    returnQueryResultDataGrid.ReadOnly = true;
                     
 
                     OdbcCommand getFine = new OdbcCommand("SELECT fine_Rate from furniture where furniture_Id = " + furniture_Id, MyConnection);
@@ -320,7 +324,6 @@ namespace MemberInfo
                     }
 
                     DateTime d1 = new DateTime(int.Parse(date_Returned.Substring(0, 4)), int.Parse(date_Returned.Substring(5, 2)), int.Parse(date_Returned.Substring(8, 2)));
-                    MessageBox.Show(d1.ToString());
                     DateTime d2 = new DateTime(int.Parse(due_Date.Substring(0, 4)), int.Parse(due_Date.Substring(5, 2)), int.Parse(due_Date.Substring(8, 2)));
 
                     double dateDiff = (d1 - d2).TotalDays;
@@ -330,6 +333,7 @@ namespace MemberInfo
                         totalFines += dateDiff * fineRate;
                     }
 
+                    totalFinesLabel.Text += totalFines;
                     getDueDateReader.Close();
                     getFineReader.Close();
 
@@ -345,25 +349,10 @@ namespace MemberInfo
             }
         }
 
-        private void rentalDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void returnQueryResultDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
-        }
-
-        private void memberResultGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void memberResultGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView currentDataGrid = (DataGridView)sender;
-            if (currentDataGrid.CurrentCell.ColumnIndex == 0)
+            if (currentDataGrid.CurrentCell.ColumnIndex == 0 && currentDataGrid.CurrentCell.Value.ToString().Length != 0)
             {
                 member_Id = int.Parse(currentDataGrid.CurrentCell.Value.ToString());
                 try
@@ -383,11 +372,13 @@ namespace MemberInfo
                     DataTable t = new DataTable();
                     memberDataAdapter.Fill(t);
                     returnQueryResultDataGrid.DataSource = t;
-
+                    returnQueryResultDataGrid.ReadOnly = true;
+                    rentalDataGrid.Rows[0].Cells[2].Value = member_Id;
+                    rentalDataGrid.ReadOnly = true;
                     //Close all resources
                     MyConnection.Close();
 
-                    MessageBox.Show("Member " + member_Id + "has been logined in");
+                    MessageBox.Show("Member " + member_Id + " has been logined in","Update",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
                 catch (OdbcException o)
                 {
@@ -395,6 +386,5 @@ namespace MemberInfo
                 }
             }
         }
-
     }
 }

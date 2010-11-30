@@ -61,6 +61,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.Return = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
+            this.totalFinesLabel = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.returnQueryResultDataGrid = new System.Windows.Forms.DataGridView();
@@ -300,9 +302,8 @@
             this.start_dateColumn});
             this.rentalDataGrid.Location = new System.Drawing.Point(6, 29);
             this.rentalDataGrid.Name = "rentalDataGrid";
-            this.rentalDataGrid.Size = new System.Drawing.Size(560, 79);
+            this.rentalDataGrid.Size = new System.Drawing.Size(547, 79);
             this.rentalDataGrid.TabIndex = 17;
-            this.rentalDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.rentalDataGrid_CellContentClick);
             // 
             // rental_numberColumn
             // 
@@ -365,7 +366,7 @@
             this.memberResultGrid.Name = "memberResultGrid";
             this.memberResultGrid.Size = new System.Drawing.Size(697, 226);
             this.memberResultGrid.TabIndex = 42;
-            this.memberResultGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.memberResultGrid_CellContentDoubleClick);
+            this.memberResultGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.memberResultGrid_CellDoubleClick);
             // 
             // memberSearchButton
             // 
@@ -407,6 +408,8 @@
             // Return
             // 
             this.Return.BackColor = System.Drawing.SystemColors.Control;
+            this.Return.Controls.Add(this.label4);
+            this.Return.Controls.Add(this.totalFinesLabel);
             this.Return.Controls.Add(this.dateTimePicker1);
             this.Return.Controls.Add(this.label3);
             this.Return.Controls.Add(this.returnQueryResultDataGrid);
@@ -417,11 +420,29 @@
             this.Return.TabIndex = 3;
             this.Return.Text = "Return";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(331, 58);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Check In Date";
+            // 
+            // totalFinesLabel
+            // 
+            this.totalFinesLabel.AutoSize = true;
+            this.totalFinesLabel.Location = new System.Drawing.Point(331, 322);
+            this.totalFinesLabel.Name = "totalFinesLabel";
+            this.totalFinesLabel.Size = new System.Drawing.Size(65, 13);
+            this.totalFinesLabel.TabIndex = 4;
+            this.totalFinesLabel.Text = "Total Fines: ";
+            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(432, 114);
+            this.dateTimePicker1.Location = new System.Drawing.Point(334, 74);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 3;
@@ -430,21 +451,20 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(400, 47);
+            this.label3.Location = new System.Drawing.Point(7, 22);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(292, 33);
+            this.label3.Size = new System.Drawing.Size(319, 33);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Select Date to Return";
+            this.label3.Text = "Check in Furniture Item";
             // 
             // returnQueryResultDataGrid
             // 
             this.returnQueryResultDataGrid.BackgroundColor = System.Drawing.Color.White;
             this.returnQueryResultDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.returnQueryResultDataGrid.Location = new System.Drawing.Point(10, 37);
+            this.returnQueryResultDataGrid.Location = new System.Drawing.Point(10, 58);
             this.returnQueryResultDataGrid.Name = "returnQueryResultDataGrid";
-            this.returnQueryResultDataGrid.Size = new System.Drawing.Size(347, 298);
+            this.returnQueryResultDataGrid.Size = new System.Drawing.Size(253, 277);
             this.returnQueryResultDataGrid.TabIndex = 0;
-            this.returnQueryResultDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.returnQueryResultDataGrid_CellContentClick);
             this.returnQueryResultDataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.returnQueryResultDataGrid_CellDoubleClick);
             // 
             // sqlButton
@@ -552,6 +572,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn start_dateColumn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label totalFinesLabel;
+        private System.Windows.Forms.Label label4;
     }
 }
 
