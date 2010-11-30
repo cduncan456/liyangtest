@@ -275,8 +275,15 @@ namespace MemberInfo
         private void returnQueryResultDataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridView currentDataGrid = (DataGridView)sender;
-            
+                     
             String date_Returned = dateTimePicker1.Text.ToString();
+            DateTime d1 = new DateTime(int.Parse(date_Returned.Substring(0, 4)), int.Parse(date_Returned.Substring(5, 2)), int.Parse(date_Returned.Substring(8, 2)));
+
+            MessageBox.Show(d1.ToString());
+
+           // DateTime d2 = new DateTime();
+           // TimeSpan ts1 = new TimeSpan()
+           // d2.Add(dateTimePicker1.Text);
            
             if (currentDataGrid.CurrentCell.ColumnIndex == 0)
             {
