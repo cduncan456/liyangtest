@@ -17,7 +17,8 @@ static class Program
         // Application.Run(new SaleForm());
         //Application.Run(new LogInForm());
         //Application.Run(new NewMemberForm());
-        Application.Run(new SaleForm(1,"Matt Ryan"));
+        //LogInForm inst = new LogInForm();
+        Application.Run(new SaleForm(1, "Matt Ryan", new LogInForm()));
     }
 }
 

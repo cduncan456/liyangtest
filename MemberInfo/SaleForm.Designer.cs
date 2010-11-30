@@ -44,7 +44,15 @@
             this.queryResultGrid = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.furnitureItemsDataGrid = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.rentalDataGrid = new System.Windows.Forms.DataGridView();
+            this.rental_numberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salesPersonColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.memberIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.due_dateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.start_dateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.memberResultGrid = new System.Windows.Forms.DataGridView();
@@ -55,22 +63,18 @@
             this.sqlButton = new System.Windows.Forms.Button();
             this.welcomeLabel = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.furnitureItemsDataGrid = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.rental_numberColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salesPersonColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.memberIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.due_dateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.start_dateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Return = new System.Windows.Forms.TabPage();
+            this.returnQueryResultDataGrid = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.queryResultGrid)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.furnitureItemsDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentalDataGrid)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memberResultGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.furnitureItemsDataGrid)).BeginInit();
+            this.Return.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.returnQueryResultDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // completeSaleButton
@@ -192,6 +196,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.Return);
             this.tabControl1.Location = new System.Drawing.Point(1, 162);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -254,6 +259,33 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Rent";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "label2";
+            // 
+            // furnitureItemsDataGrid
+            // 
+            this.furnitureItemsDataGrid.BackgroundColor = System.Drawing.Color.White;
+            this.furnitureItemsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.furnitureItemsDataGrid.Location = new System.Drawing.Point(3, 127);
+            this.furnitureItemsDataGrid.Name = "furnitureItemsDataGrid";
+            this.furnitureItemsDataGrid.Size = new System.Drawing.Size(708, 114);
+            this.furnitureItemsDataGrid.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "label1";
+            // 
             // rentalDataGrid
             // 
             this.rentalDataGrid.BackgroundColor = System.Drawing.Color.White;
@@ -268,6 +300,32 @@
             this.rentalDataGrid.Name = "rentalDataGrid";
             this.rentalDataGrid.Size = new System.Drawing.Size(560, 79);
             this.rentalDataGrid.TabIndex = 17;
+            // 
+            // rental_numberColumn
+            // 
+            this.rental_numberColumn.HeaderText = "Rental Number";
+            this.rental_numberColumn.Name = "rental_numberColumn";
+            this.rental_numberColumn.ReadOnly = true;
+            // 
+            // salesPersonColumn
+            // 
+            this.salesPersonColumn.HeaderText = "Rented By:";
+            this.salesPersonColumn.Name = "salesPersonColumn";
+            // 
+            // memberIdColumn
+            // 
+            this.memberIdColumn.HeaderText = "Member Id";
+            this.memberIdColumn.Name = "memberIdColumn";
+            // 
+            // due_dateColumn
+            // 
+            this.due_dateColumn.HeaderText = "Due Date";
+            this.due_dateColumn.Name = "due_dateColumn";
+            // 
+            // start_dateColumn
+            // 
+            this.start_dateColumn.HeaderText = "Check Out Date";
+            this.start_dateColumn.Name = "start_dateColumn";
             // 
             // shapeContainer2
             // 
@@ -372,58 +430,26 @@
             this.label11.TabIndex = 30;
             this.label11.Text = "RentMe";
             // 
-            // label1
+            // Return
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "label1";
+            this.Return.Controls.Add(this.returnQueryResultDataGrid);
+            this.Return.Location = new System.Drawing.Point(4, 22);
+            this.Return.Name = "Return";
+            this.Return.Padding = new System.Windows.Forms.Padding(3);
+            this.Return.Size = new System.Drawing.Size(714, 341);
+            this.Return.TabIndex = 3;
+            this.Return.Text = "Return";
+            this.Return.UseVisualStyleBackColor = true;
             // 
-            // furnitureItemsDataGrid
+            // returnQueryResultDataGrid
             // 
-            this.furnitureItemsDataGrid.BackgroundColor = System.Drawing.Color.White;
-            this.furnitureItemsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.furnitureItemsDataGrid.Location = new System.Drawing.Point(3, 127);
-            this.furnitureItemsDataGrid.Name = "furnitureItemsDataGrid";
-            this.furnitureItemsDataGrid.Size = new System.Drawing.Size(708, 114);
-            this.furnitureItemsDataGrid.TabIndex = 19;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 111);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "label2";
-            // 
-            // rental_numberColumn
-            // 
-            this.rental_numberColumn.HeaderText = "Rental Number";
-            this.rental_numberColumn.Name = "rental_numberColumn";
-            this.rental_numberColumn.ReadOnly = true;
-            // 
-            // salesPersonColumn
-            // 
-            this.salesPersonColumn.HeaderText = "Rented By:";
-            this.salesPersonColumn.Name = "salesPersonColumn";
-            // 
-            // memberIdColumn
-            // 
-            this.memberIdColumn.HeaderText = "Member Id";
-            this.memberIdColumn.Name = "memberIdColumn";
-            // 
-            // due_dateColumn
-            // 
-            this.due_dateColumn.HeaderText = "Due Date";
-            this.due_dateColumn.Name = "due_dateColumn";
-            // 
-            // start_dateColumn
-            // 
-            this.start_dateColumn.HeaderText = "Check Out Date";
-            this.start_dateColumn.Name = "start_dateColumn";
+            this.returnQueryResultDataGrid.BackgroundColor = System.Drawing.Color.White;
+            this.returnQueryResultDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.returnQueryResultDataGrid.Location = new System.Drawing.Point(10, 37);
+            this.returnQueryResultDataGrid.Name = "returnQueryResultDataGrid";
+            this.returnQueryResultDataGrid.Size = new System.Drawing.Size(696, 298);
+            this.returnQueryResultDataGrid.TabIndex = 0;
+            this.returnQueryResultDataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.returnQueryResultDataGrid_CellDoubleClick);
             // 
             // SaleForm
             // 
@@ -445,11 +471,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.queryResultGrid)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.furnitureItemsDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rentalDataGrid)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.memberResultGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.furnitureItemsDataGrid)).EndInit();
+            this.Return.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.returnQueryResultDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -492,6 +520,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn memberIdColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn due_dateColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn start_dateColumn;
+        private System.Windows.Forms.TabPage Return;
+        private System.Windows.Forms.DataGridView returnQueryResultDataGrid;
     }
 }
 
